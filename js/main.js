@@ -314,20 +314,24 @@ function toggleFaq(index) {
     // Close other FAQs
     document.querySelectorAll('[id^="faq-ans-"]').forEach(el => el.classList.add('hidden'));
     document.querySelectorAll('[id^="faq-icon-"]').forEach(el => {
-        el.classList.remove('fa-minus', 'rotate-45');
-        el.classList.add('fa-plus');
+        el.classList.remove('rotate-180');
     });
 
     if (isHidden) {
         ans.classList.remove('hidden');
         if (icon) {
-            icon.classList.remove('fa-plus');
-            icon.classList.add('fa-minus');
+            icon.classList.add('rotate-180');
         }
     }
 }
 
-// Brochure / Syllabus Modal Handlers
+// Brochure / Syllabus Direct Download (Without opening modal form)
+function downloadBrochureDirect(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    window.open('https://www.usaii.org/download-brochure', '_blank');
+}
+
+// Enrollment Modal Handlers
 function openBrochureModal() {
     const modal = document.getElementById('brochureModal');
     if (modal) {
@@ -419,7 +423,6 @@ function initSleekScrollAnimations() {
         '#about .grid > div',
         '#why-caie .grid > div',
         '#curriculum .divide-y > div',
-        '#prep-kit .grid > div',
         '#salary-calculator > div > div',
         '#eligibility .grid > div',
         '#program-comparison table',

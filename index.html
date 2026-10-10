@@ -6,10 +6,10 @@
     <title>Certified Artificial Intelligence Engineer (CAIE™) | USAII® Official Certification</title>
     <meta name="description" content="Build Practical AI, Machine Learning, Generative AI, LLM & RAG Skills with an Industry-Validated Credential from the United States Artificial Intelligence Institute (USAII®).">
     
-    <!-- Google Fonts: Plus Jakarta Sans, Inter & Caveat (Cursive) -->
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,7 +20,6 @@
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', '"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                         heading: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        cursive: ['"Caveat"', '"Dancing Script"', 'cursive'],
                     },
                     colors: {
                         brand: {
@@ -75,10 +74,6 @@ html {
 
 body, input, select, textarea, button {
     font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-.font-cursive {
-    font-family: 'Caveat', 'Dancing Script', cursive;
 }
 
 body {
@@ -424,12 +419,64 @@ a, button, input, select, svg, i {
     }
 }
 
+/* ==========================================================================
+   9. WHY CAIE PILLARS - DYNAMIC ACTIVE SIZE SCALING
+   ========================================================================== */
+.why-pillar-item {
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Inactive items: reduced font size, muted soft blue color */
+.why-pillar-item .pillar-title {
+    font-size: 0.8125rem !important; /* 13px */
+    line-height: 1.35;
+    color: rgba(191, 219, 254, 0.55);
+    font-weight: 600;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-pillar-item .pillar-desc {
+    font-size: 0.75rem !important; /* 12px */
+    line-height: 1.45;
+    color: rgba(191, 219, 254, 0.35);
+    margin-top: 0.2rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-pillar-item:hover:not(.is-active) .pillar-title {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Active item: big font size (same size as original), bold white prominent */
+.why-pillar-item.is-active .pillar-title {
+    font-size: 1.125rem !important; /* 18px */
+    line-height: 1.25;
+    color: #ffffff !important;
+    font-weight: 800;
+}
+
+@media (min-width: 640px) {
+    .why-pillar-item .pillar-title {
+        font-size: 0.875rem !important; /* 14px on sm */
+    }
+    .why-pillar-item.is-active .pillar-title {
+        font-size: 1.25rem !important; /* 20px on sm */
+    }
+}
+
+.why-pillar-item.is-active .pillar-desc {
+    font-size: 0.875rem !important; /* 14px */
+    line-height: 1.55;
+    color: rgba(219, 234, 254, 0.92) !important;
+    margin-top: 0.375rem;
+}
+
     </style>
 </head>
 <body class="bg-[#FBF9F5] text-slate-900 font-sans antialiased selection:bg-blue-700 selection:text-white">
 
-    <!-- STICKY FLOATING NAVBAR CARD (STICKS DOWN THE SCREEN ON SCROLL) -->
-    <div class="sticky top-3 sm:top-4 md:top-5 z-50 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pt-3 sm:pt-4 pb-2 pointer-events-none transition-all duration-300">
+    <!-- FIXED FLOATING NAVBAR CARD (REMAINS FLOATING & STICKY DOWN THE SCREEN ON SCROLL) -->
+    <div class="fixed top-3 sm:top-4 md:top-5 left-0 right-0 z-50 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
         <header id="mainFloatingHeader" class="bg-[#FBF9F5] rounded-2xl sm:rounded-3xl shadow-[0_8px_30px_rgba(10,37,64,0.08)] border border-stone-200/80 px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 transition-all duration-300 pointer-events-auto">
             
             <div class="flex items-center justify-between">
@@ -444,7 +491,6 @@ a, button, input, select, svg, i {
                 <nav class="hidden lg:flex items-center space-x-5 xl:space-x-7 text-sm font-semibold text-slate-800">
                     <a href="#about" class="hover:text-blue-700 transition-colors">Overview</a>
                     <a href="#curriculum" class="hover:text-blue-700 transition-colors">Curriculum</a>
-                    <a href="#prep-kit" class="hover:text-blue-700 transition-colors">Prep Kit</a>
                     <a href="#eligibility" class="hover:text-blue-700 transition-colors">Eligibility</a>
                     <a href="#faqs" class="hover:text-blue-700 transition-colors">FAQs</a>
                 </nav>
@@ -462,12 +508,14 @@ a, button, input, select, svg, i {
     </div>
 
     <!-- HERO MAIN SECTION (FULL BACKGROUND WITH iSTOCK-2170555843 & LINEAR GRADIENT) -->
-    <div class="relative overflow-hidden -mt-24 sm:-mt-28 pt-32 sm:pt-40 pb-20 sm:pb-24 min-h-[760px] lg:min-h-[850px] flex items-center bg-slate-950" id="overview">
+    <div class="relative overflow-hidden pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 min-h-[760px] lg:min-h-[850px] flex items-center bg-slate-950" id="overview">
         
-        <!-- Full Background Image covering entire hero & extending under header -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="Images/iStock-2170555843.jpg" alt="USAII® Certified Artificial Intelligence Engineer" class="w-full h-full object-cover object-[76%_24%] transform scale-125 sm:scale-135 lg:scale-[1.5] origin-[76%_24%]" />
-            <!-- Linear Gradient on Left Side so the text is crisp, high-contrast & visible, leaving the AI brain fully radiant -->
+        <!-- Full Background Video covering entire hero & extending under header -->
+        <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
+            <video autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover object-center">
+                <source src="Images/stock video.mp4" type="video/mp4">
+            </video>
+            <!-- Linear Gradient on Left Side so the text is crisp, high-contrast & visible, leaving the video fully radiant -->
             <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 via-38% to-transparent pointer-events-none"></div>
             <!-- Subtle Top & Bottom Gradient Vignettes -->
             <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950/70 to-transparent pointer-events-none"></div>
@@ -502,7 +550,7 @@ a, button, input, select, svg, i {
                         </a>
 
                         <!-- Secondary Button -->
-                        <button type="button" onclick="openBrochureModal('syllabus')" class="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base border border-white/30 backdrop-blur-sm shadow-sm transition-all transform hover:-translate-y-0.5">
+                        <button type="button" onclick="downloadBrochureDirect(event)" class="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base border border-white/30 backdrop-blur-sm shadow-sm transition-all transform hover:-translate-y-0.5">
                             <span>Download Syllabus</span>
                             <i class="fa-solid fa-download text-xs text-white"></i>
                         </button>
@@ -520,21 +568,16 @@ a, button, input, select, svg, i {
                         <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-400/15 rounded-full blur-2xl pointer-events-none"></div>
 
 
-                        <!-- Tuition & Value -->
-                        <div class="pb-5 border-b border-slate-200/90 flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 sm:gap-4">
+                        <!-- Program Details Header -->
+                        <div class="pb-4 border-b border-slate-200/90 flex items-center justify-between">
                             <div>
-                                <div class="text-[11px] font-black text-slate-500 uppercase tracking-widest font-heading mb-1">All-Inclusive Program Fee</div>
-                                <div class="flex items-baseline gap-3">
-                                    <span class="text-3xl sm:text-4xl lg:text-[42px] font-black font-heading text-slate-950 tracking-tight leading-none">US $749</span>
-                                    <span class="text-sm sm:text-base font-semibold text-slate-400 line-through">Total Value $1,398</span>
-                                </div>
+                                <div class="text-[11px] font-black text-slate-500 uppercase tracking-widest font-heading mb-0.5">Program Details</div>
+                                <div class="text-xl sm:text-2xl font-black font-heading text-slate-950 tracking-tight">CAIE™ Specifications</div>
                             </div>
-                            <div class="text-left sm:text-right shrink-0">
-                                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-blue-100 text-blue-950 text-xs font-black font-heading shadow-xs border border-blue-200/90">
-                                    <i class="fa-solid fa-bolt text-xs text-blue-700"></i>
-                                    <span>Save $649 Free Kit</span>
-                                </span>
-                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-bold font-heading">
+                                <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                                <span>Self-Paced</span>
+                            </span>
                         </div>
 
                         <!-- Course Info Specs (Spacious unboxed open rows) -->
@@ -574,18 +617,7 @@ a, button, input, select, svg, i {
                                     <span>Exam Voucher</span>
                                 </span>
                                 <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-950 text-xs sm:text-[13px] font-black font-heading border border-blue-200/80">
-                                    Included + 1 Free Retake
-                                </span>
-                            </div>
-
-                            <!-- 5. Free Prep Kit -->
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="flex items-center gap-3 text-slate-900 font-semibold text-sm sm:text-[15px]">
-                                    <span class="w-8 h-8 rounded-lg bg-blue-700 text-white flex items-center justify-center text-sm shrink-0 shadow-xs"><i class="fa-solid fa-gift"></i></span>
-                                    <span>Free Prep Kit</span>
-                                </span>
-                                <span class="inline-flex items-center px-3.5 py-1 rounded-full bg-blue-700 text-white text-xs sm:text-[13px] font-black font-heading shadow-xs">
-                                    Worth $649 Included
+                                    Included + 1 Free Exam
                                 </span>
                             </div>
 
@@ -744,7 +776,7 @@ a, button, input, select, svg, i {
                 
                 <!-- Left: Headline & CTA -->
                 <div class="lg:col-span-6 space-y-6 text-left py-2 sm:py-4">
-                    <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-800 tracking-wide">
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-800 font-heading">
                         Program Overview
                     </div>
 
@@ -763,10 +795,6 @@ a, button, input, select, svg, i {
                             <span>Check Your Eligibility</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
-                        <button type="button" onclick="openBrochureModal('syllabus')" class="inline-flex items-center gap-2 px-6 py-3.5 bg-[#FBF9F5] hover:bg-stone-100 text-slate-700 hover:text-slate-950 font-bold font-heading text-sm sm:text-base rounded-full border border-slate-300 transition-all shadow-sm hover:shadow hover:-translate-y-0.5">
-                            <i class="fa-regular fa-file-pdf text-blue-700"></i>
-                            <span>Download Syllabus</span>
-                        </button>
                     </div>
                 </div>
 
@@ -822,10 +850,9 @@ a, button, input, select, svg, i {
                     </div>
 
                     <!-- Specification Details Summary Bar -->
-                    <div class="pt-2 flex flex-wrap items-center justify-between gap-3 px-3 text-xs text-slate-500 font-medium">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-blue-600 text-[10px]"></i> Fee: <strong class="text-slate-800">US $749 (All-Inclusive)</strong></span>
+                    <div class="pt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6 px-3 text-xs text-slate-500 font-medium">
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-blue-600 text-[10px]"></i> Start: <strong class="text-blue-700">Immediate Access</strong></span>
-                        <span class="w-full flex items-center justify-center gap-1.5 text-center"><i class="fa-solid fa-circle-check text-blue-600 text-[10px]"></i> Format: <strong class="text-slate-800">100% Online & Self-Paced</strong></span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-blue-600 text-[10px]"></i> Format: <strong class="text-slate-800">100% Online & Self-Paced</strong></span>
                     </div>
 
                 </div>
@@ -834,218 +861,236 @@ a, button, input, select, svg, i {
         </div>
     </section>
 
-    <!-- SECTION: WHY EARN THE USAII® CAIE™ CERTIFICATION? (8 CLEAN PILLARS) -->
-    <section id="why-caie" class="relative py-12 sm:py-16 bg-[#FBF9F5] overflow-hidden scroll-mt-28">
-        <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
-        <div class="absolute inset-0 pointer-events-none select-none ambient-glow-right"></div>
-
-        <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
-                <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-800 tracking-wide text-center">
-                    Career Advancement
-                </div>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight">
-                    Why Earn the USAII® <span class="text-blue-800">CAIE™ Certification?</span>
-                </h2>
-                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
-                    CAIE™ is structured around both <strong>professional AI knowledge and practical skill development</strong>. Rather than focusing on a single technology, the curriculum progresses from Machine Learning fundamentals into Deep Learning, NLP, Computer Vision, Generative AI, LLM applications, RAG, MLOps and ML architectures.
-                </p>
+    <!-- SECTION: WHY EARN THE USAII® CAIE™ CERTIFICATION? -->
+    <section id="why-caie" class="relative scroll-mt-28">
+        <!-- Institutional Blue Strip -->
+        <div class="relative bg-[#0A2540] text-white pt-14 sm:pt-20 pb-14 sm:pb-20 overflow-hidden">
+            <!-- Background Pattern Overlay -->
+            <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <defs>
+                        <pattern id="why-caie-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
+                            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#why-caie-strip-pattern)" />
+                </svg>
             </div>
+            <!-- Subtle Ambient Glow -->
+            <div class="absolute -right-24 -top-24 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- 2-Column Layout (Matching Reference Image) -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center max-w-7xl mx-auto">
+            <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
                 
-                <!-- Left: Text Pillars with Moving Blue Indicator (Matches Reference Image) -->
-                <div id="why-caie-pillars-container" class="lg:col-span-5 relative space-y-6 sm:space-y-7">
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-300 font-heading text-center">
+                        Career Advancement
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight">
+                        Why Earn the USAII® <span class="text-blue-300">CAIE™ Certification?</span>
+                    </h2>
+                    <p class="text-blue-100/85 text-base sm:text-lg leading-relaxed">
+                        CAIE™ is structured around both <strong class="text-white">professional AI knowledge and practical skill development</strong>. Rather than focusing on a single technology, the curriculum progresses from Machine Learning fundamentals into Deep Learning, NLP, Computer Vision, Generative AI, LLM applications, RAG, MLOps and ML architectures.
+                    </p>
+                </div>
+
+                <!-- 2-Column Layout (Matching Reference Image) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch max-w-7xl mx-auto">
                     
-                    <!-- Smooth Moving Active Blue Bar Indicator (By default on first item) -->
-                    <div id="pillar-active-indicator" class="absolute left-0 w-[3.5px] rounded-full bg-blue-600 shadow-[0_0_8px_rgba(0, 102, 204, 0.35)] transition-all duration-300 ease-out z-10 pointer-events-none" style="top: 0; height: 72px;"></div>
-
-                    <!-- Item 1: Default Active -->
-                    <div class="why-pillar-item relative pl-5 sm:pl-6 py-0.5 cursor-pointer transition-colors group" data-index="0">
-                        <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-slate-200 transition-colors"></span>
-                        <h3 class="pillar-title text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug group-hover:text-blue-800 transition-colors">
-                            Foundation in AI & Machine Learning
-                        </h3>
-                        <p class="pillar-desc text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                            Master core AI principles, supervised and unsupervised learning, mathematical foundations, and model evaluation metrics.
-                        </p>
-                    </div>
-
-                    <!-- Item 2 -->
-                    <div class="why-pillar-item relative pl-5 sm:pl-6 py-0.5 cursor-pointer transition-colors group" data-index="1">
-                        <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-slate-200 transition-colors"></span>
-                        <h3 class="pillar-title text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug group-hover:text-blue-800 transition-colors">
-                            Generative AI, LLMs & Prompt Engineering
-                        </h3>
-                        <p class="pillar-desc text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                            Explore transformer architectures, fine-tuning, prompt engineering strategies, and production-grade LLM applications.
-                        </p>
-                    </div>
-
-                    <!-- Item 3 -->
-                    <div class="why-pillar-item relative pl-5 sm:pl-6 py-0.5 cursor-pointer transition-colors group" data-index="2">
-                        <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-slate-200 transition-colors"></span>
-                        <h3 class="pillar-title text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug group-hover:text-blue-800 transition-colors">
-                            RAG Pipelines & Vector Databases
-                        </h3>
-                        <p class="pillar-desc text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                            Build advanced retrieval-augmented generation systems, semantic search engines, and real-time enterprise knowledge integrations.
-                        </p>
-                    </div>
-
-                    <!-- Item 4 -->
-                    <div class="why-pillar-item relative pl-5 sm:pl-6 py-0.5 cursor-pointer transition-colors group" data-index="3">
-                        <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-slate-200 transition-colors"></span>
-                        <h3 class="pillar-title text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug group-hover:text-blue-800 transition-colors">
-                            Deep Learning, NLP & Computer Vision
-                        </h3>
-                        <p class="pillar-desc text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                            Implement neural networks, CNNs, RNNs, natural language processing models, and multimodal computer vision systems.
-                        </p>
-                    </div>
-
-                    <!-- Item 5 -->
-                    <div class="why-pillar-item relative pl-5 sm:pl-6 py-0.5 cursor-pointer transition-colors group" data-index="4">
-                        <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-slate-200 transition-colors"></span>
-                        <h3 class="pillar-title text-base sm:text-lg font-bold font-heading text-slate-900 leading-snug group-hover:text-blue-800 transition-colors">
-                            MLOps, Production & Global Certification
-                        </h3>
-                        <p class="pillar-desc text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                            Deploy, monitor, and scale AI models in production with MLOps pipelines and earn your globally validated USAII® credential.
-                        </p>
-                    </div>
-
-                </div>
-
-                <!-- Right: Platform & Course Wireframe Mockup Card (Exact Reference Styling) -->
-                <div class="lg:col-span-7 relative">
-                    <div class="relative bg-white/80 rounded-3xl p-5 sm:p-8 shadow-[0_16px_45px_rgba(10, 37, 64, 0.08)] border border-stone-200/90 overflow-hidden min-h-[380px] sm:min-h-[440px] flex flex-col justify-center">
+                    <!-- Left: Text Pillars with Moving Blue Indicator (Matches Reference Image) -->
+                    <div id="why-caie-pillars-container" class="lg:col-span-5 relative space-y-4 sm:space-y-5 flex flex-col justify-between py-1">
                         
-                        <!-- Background Wireframe Canvas Grid -->
-                        <div class="grid grid-cols-12 gap-3 sm:gap-4 opacity-75">
-                            
-                            <!-- Wireframe Card 1: Header / Top Nav Wireframe -->
-                            <div class="col-span-4 rounded-xl border border-slate-200 p-3 sm:p-3.5 space-y-2 bg-slate-50/60">
-                                <div class="w-8 h-8 rounded-lg border border-slate-200 bg-white"></div>
-                                <div class="w-full h-2 rounded bg-slate-200"></div>
-                                <div class="w-2/3 h-2 rounded bg-slate-200"></div>
-                            </div>
+                        <!-- Smooth Moving Active Blue Bar Indicator (By default on first item) -->
+                        <div id="pillar-active-indicator" class="absolute left-0 w-[4px] rounded-full bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.85)] transition-all duration-300 ease-out z-10 pointer-events-none" style="top: 0; height: 72px;"></div>
 
-                            <!-- Wireframe Card 2: 3x2 Module Boxes with Crossed Diagonals -->
-                            <div class="col-span-8 rounded-xl border border-slate-200 p-3 bg-slate-50/60 grid grid-cols-3 gap-2">
-                                <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                            </div>
-
-                            <!-- Wireframe Card 3: 2x2 Larger Module Boxes with Crossed Diagonals -->
-                            <div class="col-span-8 rounded-xl border border-slate-200 p-3 sm:p-4 bg-slate-50/60 grid grid-cols-2 gap-3">
-                                <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                            </div>
-
-                            <!-- Wireframe Card 4: Side Panel Blocks -->
-                            <div class="col-span-4 rounded-xl border border-slate-200 p-3 bg-slate-50/60 space-y-2.5">
-                                <div class="aspect-[3/2] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                    <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                </div>
-                                <div class="w-full h-2 rounded bg-slate-200"></div>
-                                <div class="w-3/4 h-2 rounded bg-slate-200"></div>
-                            </div>
-
+                        <!-- Item 1: Default Active -->
+                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group is-active" data-index="0">
+                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
+                            <h3 class="pillar-title font-heading">
+                                Foundation in AI & Machine Learning
+                            </h3>
+                            <p class="pillar-desc">
+                                Master core AI principles, supervised and unsupervised learning, mathematical foundations, and model evaluation metrics.
+                            </p>
                         </div>
 
-                        <!-- Central Floating Smartphone Mockup Card (Matching Reference Image) -->
-                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
-                            <div id="mockupPhoneCard" class="w-[210px] sm:w-[230px] bg-white rounded-[24px] sm:rounded-[28px] border-2 border-blue-500 shadow-[0_20px_50px_rgba(0, 102, 204, 0.22)] p-3.5 space-y-2.5 pointer-events-auto transform -rotate-1 hover:rotate-0 transition-all duration-300">
-                                
-                                <!-- Phone Header / Search Bar -->
-                                <div class="flex items-center justify-between border-b border-slate-100 pb-1.5">
-                                    <span class="text-[11px] font-bold text-slate-900 font-heading">Search</span>
-                                    <i class="fa-solid fa-magnifying-glass text-[10px] text-slate-400"></i>
-                                </div>
-                                <div class="w-full py-1.5 px-2.5 rounded-lg bg-slate-50 border border-slate-200 text-[10px] text-slate-600 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-sparkles text-blue-600 text-[9px] flex-shrink-0"></i>
-                                    <span id="mockupSearchInput" class="truncate font-medium">Machine Learning & Python...</span>
-                                </div>
+                        <!-- Item 2 -->
+                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="1">
+                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
+                            <h3 class="pillar-title font-heading">
+                                Generative AI, LLMs & Prompt Engineering
+                            </h3>
+                            <p class="pillar-desc">
+                                Explore transformer architectures, fine-tuning, prompt engineering strategies, and production-grade LLM applications.
+                            </p>
+                        </div>
 
-                                <!-- Dynamic Active Module Block -->
-                                <div class="space-y-1.5">
-                                    <div class="flex items-center justify-between">
-                                        <span id="mockupCategory" class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block">Module 01 • Fundamentals</span>
-                                        <span id="mockupTrack" class="text-[8px] font-bold px-1.5 py-0.5 rounded-full bg-blue-100 text-blue-800">Core AI</span>
-                                    </div>
-                                    <div class="p-2.5 rounded-xl bg-gradient-to-br from-blue-50 to-teal-50/50 border border-blue-200 flex items-center gap-2">
-                                        <div id="mockupIcon" class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center text-[11px] shadow-sm flex-shrink-0">
-                                            <i class="fa-solid fa-chart-line"></i>
-                                        </div>
-                                        <div class="min-w-0">
-                                            <p id="mockupTitle" class="text-[10px] sm:text-[11px] font-bold text-slate-900 leading-tight truncate">Supervised & Unsupervised ML</p>
-                                            <p id="mockupSub" class="text-[8.5px] text-blue-700 font-medium truncate mt-0.5">Regression, Ensembles & Metrics</p>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- Item 3 -->
+                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="2">
+                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
+                            <h3 class="pillar-title font-heading">
+                                RAG Pipelines & Vector Databases
+                            </h3>
+                            <p class="pillar-desc">
+                                Build advanced retrieval-augmented generation systems, semantic search engines, and real-time enterprise knowledge integrations.
+                            </p>
+                        </div>
 
-                                <!-- Interactive Practice Lab Dynamic Block -->
-                                <div>
-                                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Interactive Code Lab</span>
-                                    <div class="flex items-center justify-between text-[9.5px] font-semibold text-slate-700 bg-slate-50/90 rounded-lg p-2 border border-slate-200/70">
-                                        <div class="flex items-center gap-1.5 min-w-0">
-                                            <i id="mockupLabIcon" class="fa-solid fa-code text-[10px] text-blue-600 flex-shrink-0"></i>
-                                            <span id="mockupLabTitle" class="truncate">Scikit-Learn & Math Foundations</span>
-                                        </div>
-                                        <span class="text-blue-700 font-bold text-[8.5px] px-1.5 py-0.5 rounded bg-blue-100 flex-shrink-0 ml-1">Active</span>
-                                    </div>
-                                </div>
+                        <!-- Item 4 -->
+                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="3">
+                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
+                            <h3 class="pillar-title font-heading">
+                                Deep Learning, NLP & Computer Vision
+                            </h3>
+                            <p class="pillar-desc">
+                                Implement neural networks, CNNs, RNNs, natural language processing models, and multimodal computer vision systems.
+                            </p>
+                        </div>
 
-                                <!-- Bottom Mini Nav Bar -->
-                                <div class="flex items-center justify-around border-t border-slate-100 pt-1.5 text-slate-400 text-[11px]">
-                                    <i class="fa-solid fa-house text-blue-600"></i>
-                                    <i class="fa-solid fa-book-open"></i>
-                                    <i class="fa-solid fa-certificate"></i>
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-
-                            </div>
+                        <!-- Item 5 -->
+                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="4">
+                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
+                            <h3 class="pillar-title font-heading">
+                                MLOps, Production & Global Certification
+                            </h3>
+                            <p class="pillar-desc">
+                                Deploy, monitor, and scale AI models in production with MLOps pipelines and earn your globally validated USAII® credential.
+                            </p>
                         </div>
 
                     </div>
-                </div>
+
+                    <!-- Right: Platform & Course Wireframe Mockup Card (Sized to match left text height) -->
+                    <div class="lg:col-span-7 relative flex items-stretch">
+                        <div class="relative w-full h-full min-h-[360px] bg-white rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5),0_0_40px_rgba(0,102,204,0.18)] border border-blue-900/40 overflow-hidden flex items-center justify-center p-3 sm:p-5">
+                        
+                            <!-- Background Wireframe Canvas Grid (Fills background without forcing height) -->
+                            <div class="absolute inset-0 p-4 sm:p-5 opacity-60 pointer-events-none select-none flex flex-col justify-center overflow-hidden">
+                                <div class="grid grid-cols-12 gap-2 sm:gap-2.5">
+                                    
+                                    <!-- Wireframe Card 1: Header / Top Nav Wireframe -->
+                                    <div class="col-span-4 rounded-xl border border-slate-200 p-2.5 space-y-1.5 bg-slate-50/60">
+                                        <div class="w-6 h-6 rounded-md border border-slate-200 bg-white"></div>
+                                        <div class="w-full h-1.5 rounded bg-slate-200"></div>
+                                        <div class="w-2/3 h-1.5 rounded bg-slate-200"></div>
+                                    </div>
+
+                                    <!-- Wireframe Card 2: 3x2 Module Boxes with Crossed Diagonals -->
+                                    <div class="col-span-8 rounded-xl border border-slate-200 p-2 bg-slate-50/60 grid grid-cols-3 gap-1.5">
+                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                    </div>
+
+                                    <!-- Wireframe Card 3: 2x2 Larger Module Boxes with Crossed Diagonals -->
+                                    <div class="col-span-8 rounded-xl border border-slate-200 p-2 sm:p-2.5 bg-slate-50/60 grid grid-cols-2 gap-2">
+                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                    </div>
+
+                                    <!-- Wireframe Card 4: Side Panel Blocks -->
+                                    <div class="col-span-4 rounded-xl border border-slate-200 p-2 bg-slate-50/60 space-y-2">
+                                        <div class="aspect-[3/2] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
+                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
+                                        </div>
+                                        <div class="w-full h-1.5 rounded bg-slate-200"></div>
+                                        <div class="w-3/4 h-1.5 rounded bg-slate-200"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Central Floating Smartphone Mockup Card (Enlarged and Prominent) -->
+                            <div class="relative z-10 flex items-center justify-center p-2 pointer-events-none">
+                                <div id="mockupPhoneCard" class="w-[265px] sm:w-[295px] md:w-[315px] bg-white rounded-[26px] sm:rounded-[30px] border-2 border-blue-500 shadow-[0_22px_55px_rgba(0,102,204,0.25)] p-4 sm:p-4.5 space-y-3 pointer-events-auto transform -rotate-1 hover:rotate-0 transition-all duration-300">
+                                    
+                                    <!-- Phone Header / Search Bar -->
+                                    <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                                        <span class="text-xs sm:text-[13px] font-bold text-slate-900 font-heading">Search</span>
+                                        <i class="fa-solid fa-magnifying-glass text-[11px] text-slate-400"></i>
+                                    </div>
+                                    <div class="w-full py-2 px-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] sm:text-xs text-slate-600 flex items-center gap-2 shadow-2xs">
+                                        <i class="fa-solid fa-sparkles text-blue-600 text-[10px] shrink-0"></i>
+                                        <span id="mockupSearchInput" class="truncate font-medium">Machine Learning & Python...</span>
+                                    </div>
+
+                                    <!-- Dynamic Active Module Block -->
+                                    <div class="space-y-1.5 sm:space-y-2">
+                                        <div class="flex items-center justify-between">
+                                            <span id="mockupCategory" class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Module 01 • Fundamentals</span>
+                                            <span id="mockupTrack" class="text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">Core AI</span>
+                                        </div>
+                                        <div class="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-br from-blue-50 to-teal-50/50 border border-blue-200 flex items-center gap-2.5 sm:gap-3">
+                                            <div id="mockupIcon" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs sm:text-sm shadow-sm shrink-0">
+                                                <i class="fa-solid fa-chart-line"></i>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <p id="mockupTitle" class="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight truncate">Supervised & Unsupervised ML</p>
+                                                <p id="mockupSub" class="text-[9.5px] sm:text-[10.5px] text-blue-700 font-medium truncate mt-0.5">Regression, Ensembles & Metrics</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Interactive Practice Lab Dynamic Block -->
+                                    <div>
+                                        <span class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Interactive Code Lab</span>
+                                        <div class="flex items-center justify-between text-[10.5px] sm:text-[11.5px] font-semibold text-slate-700 bg-slate-50/90 rounded-xl p-2 sm:p-2.5 border border-slate-200/70">
+                                            <div class="flex items-center gap-2 min-w-0">
+                                                <i id="mockupLabIcon" class="fa-solid fa-code text-[11px] text-blue-600 shrink-0"></i>
+                                                <span id="mockupLabTitle" class="truncate">Scikit-Learn & Math Foundations</span>
+                                            </div>
+                                            <span class="text-blue-700 font-bold text-[9px] sm:text-[10px] px-2 py-0.5 rounded bg-blue-100 shrink-0 ml-1.5">Active</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bottom Mini Nav Bar -->
+                                    <div class="flex items-center justify-around border-t border-slate-100 pt-2 text-slate-400 text-xs sm:text-sm">
+                                        <i class="fa-solid fa-house text-blue-600"></i>
+                                        <i class="fa-solid fa-book-open"></i>
+                                        <i class="fa-solid fa-certificate"></i>
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
 
             </div>
 
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SECTION: 9 PRINCIPAL CURRICULUM AREAS (WITH CATEGORY FILTER PILLS) -->
-    <section id="curriculum" class="relative py-16 sm:py-24 bg-[#FBF9F5] overflow-hidden scroll-mt-28">
+    <section id="curriculum" class="relative pt-12 sm:pt-16 pb-4 sm:pb-6 bg-[#FBF9F5] overflow-hidden scroll-mt-28">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-dual"></div>
 
@@ -1053,7 +1098,7 @@ a, button, input, select, svg, i {
             
             <!-- Section Header -->
             <div class="max-w-4xl mx-auto text-center mb-12 space-y-3">
-                <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-800 tracking-wide text-center">
+                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-800 font-heading text-center">
                     Curriculum Architecture
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight">
@@ -1077,76 +1122,76 @@ a, button, input, select, svg, i {
                     </div>
 
                     <div class="flex md:flex-col overflow-x-auto no-scrollbar gap-2 md:gap-1.5 py-1 px-1 pb-3 md:pb-0 snap-x">
-                        <button type="button" onclick="switchCurriculumModule(1)" id="mod-tab-1" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-blue-800 md:border-r-4 md:border-blue-800 bg-blue-800 md:bg-slate-100 text-white md:text-slate-900 font-bold snap-start shadow-sm md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(1)" id="mod-tab-1" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-blue-800 md:border-r-4 md:border-blue-800 bg-blue-800 md:bg-slate-100 text-white md:text-slate-900 font-bold snap-start shadow-sm md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-white md:text-blue-800 font-bold mod-kicker">Module 1</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-bold px-2 py-0.5 rounded-full md:rounded bg-blue-700 md:bg-blue-100 text-white md:text-blue-900 mod-weight">12%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-bold text-slate-900 mt-0.5 leading-snug mod-title">Exploring AI and ML Essentials</div>
+                            <div class="hidden md:block text-base font-bold text-slate-900 mt-1 leading-snug mod-title">Exploring AI and ML Essentials</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(2)" id="mod-tab-2" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(2)" id="mod-tab-2" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 2</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">15%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Engineering the Future: From Debugging to Robotics</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Engineering the Future: From Debugging to Robotics</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(3)" id="mod-tab-3" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(3)" id="mod-tab-3" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 3</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">17%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Deep Learning Concepts: Advanced</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Deep Learning Concepts: Advanced</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(4)" id="mod-tab-4" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(4)" id="mod-tab-4" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 4</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">13%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Natural Language Processing Demystified</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Natural Language Processing Demystified</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(5)" id="mod-tab-5" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(5)" id="mod-tab-5" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 5</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">15%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Theories of Computer Vision and GANs</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Theories of Computer Vision and GANs</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(6)" id="mod-tab-6" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(6)" id="mod-tab-6" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 6</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">07%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Generative AI and LLMs: Theory and Training</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Generative AI and LLMs: Theory and Training</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(7)" id="mod-tab-7" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(7)" id="mod-tab-7" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 7</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">08%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Advanced LLMs: Techniques, Applications, and Frameworks</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Advanced LLMs: Techniques, Applications, and Frameworks</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(8)" id="mod-tab-8" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(8)" id="mod-tab-8" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 8</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">07%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Mastering Retrieval-Augmented Generation</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Mastering Retrieval-Augmented Generation</div>
                         </button>
 
-                        <button type="button" onclick="switchCurriculumModule(9)" id="mod-tab-9" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
+                        <button type="button" onclick="switchCurriculumModule(9)" id="mod-tab-9" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker">Module 9</span>
                                 <span class="text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight">06%</span>
                             </div>
-                            <div class="hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title">Navigating ML: Architectures, Tools, and Platforms</div>
+                            <div class="hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title">Navigating ML: Architectures, Tools, and Platforms</div>
                         </button>
                     </div>
                 </div>
@@ -1159,7 +1204,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 01</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Exploring AI and ML Essentials</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Exploring AI and ML Essentials</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1182,25 +1227,25 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Essentials for ML Engineers</span>
+                                    <span class="text-sm text-slate-800 font-medium">Essentials for ML Engineers</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Machine Learning Process</span>
+                                    <span class="text-sm text-slate-800 font-medium">Machine Learning Process</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Stock Price Prediction Using Regression Techniques</span>
+                                    <span class="text-sm text-slate-800 font-medium">Stock Price Prediction Using Regression Techniques</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Movie Recommendation Engine with Naïve Bayes</span>
+                                    <span class="text-sm text-slate-800 font-medium">Movie Recommendation Engine with Naïve Bayes</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Ad Clicks with Logistic Regression</span>
+                                    <span class="text-sm text-slate-800 font-medium">Ad Clicks with Logistic Regression</span>
                                 </div>
                             </div>
                         </div>
@@ -1211,7 +1256,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 02</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Engineering the Future: From Debugging to Robotics</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Engineering the Future: From Debugging to Robotics</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1234,21 +1279,21 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Debugging for Responsible AI</span>
+                                    <span class="text-sm text-slate-800 font-medium">Debugging for Responsible AI</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Robotics and AI: Building the Basics</span>
+                                    <span class="text-sm text-slate-800 font-medium">Robotics and AI: Building the Basics</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">MLOps: The Backbone of Scalable AI Systems</span>
+                                    <span class="text-sm text-slate-800 font-medium">MLOps: The Backbone of Scalable AI Systems</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Configuring Your Robot</span>
+                                    <span class="text-sm text-slate-800 font-medium">Configuring Your Robot</span>
                                 </div>
                             </div>
                         </div>
@@ -1259,7 +1304,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 03</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Deep Learning Concepts: Advanced</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Deep Learning Concepts: Advanced</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1282,21 +1327,21 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Life Cycle of Deep Learning Models</span>
+                                    <span class="text-sm text-slate-800 font-medium">Life Cycle of Deep Learning Models</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Decoding Autoencoders and Transformers</span>
+                                    <span class="text-sm text-slate-800 font-medium">Decoding Autoencoders and Transformers</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Exploring CNNs and RNNs</span>
+                                    <span class="text-sm text-slate-800 font-medium">Exploring CNNs and RNNs</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Making Sense of Neural Networks</span>
+                                    <span class="text-sm text-slate-800 font-medium">Making Sense of Neural Networks</span>
                                 </div>
                             </div>
                         </div>
@@ -1307,7 +1352,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 04</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Natural Language Processing Demystified</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Natural Language Processing Demystified</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1330,21 +1375,21 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Getting Started with NLP</span>
+                                    <span class="text-sm text-slate-800 font-medium">Getting Started with NLP</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Streamlining NLP Text Processing</span>
+                                    <span class="text-sm text-slate-800 font-medium">Streamlining NLP Text Processing</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Leveraging ML for Natural Language Processing</span>
+                                    <span class="text-sm text-slate-800 font-medium">Leveraging ML for Natural Language Processing</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Classifying Text with Traditional ML Techniques</span>
+                                    <span class="text-sm text-slate-800 font-medium">Classifying Text with Traditional ML Techniques</span>
                                 </div>
                             </div>
                         </div>
@@ -1355,7 +1400,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 05</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Theories of Computer Vision and GANs</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Theories of Computer Vision and GANs</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1378,25 +1423,25 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">The Building Blocks of Neural Networks</span>
+                                    <span class="text-sm text-slate-800 font-medium">The Building Blocks of Neural Networks</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Exploring Convolutional Neural Networks</span>
+                                    <span class="text-sm text-slate-800 font-medium">Exploring Convolutional Neural Networks</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Object Detection: Concepts and Techniques</span>
+                                    <span class="text-sm text-slate-800 font-medium">Object Detection: Concepts and Techniques</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Building Deep Learning Models with PyTorch</span>
+                                    <span class="text-sm text-slate-800 font-medium">Building Deep Learning Models with PyTorch</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Image Classification with Transfer Learning</span>
+                                    <span class="text-sm text-slate-800 font-medium">Image Classification with Transfer Learning</span>
                                 </div>
                             </div>
                         </div>
@@ -1407,7 +1452,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 06</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Generative AI and LLMs: Theory and Training</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Generative AI and LLMs: Theory and Training</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1430,21 +1475,21 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Introduction to Generative AI</span>
+                                    <span class="text-sm text-slate-800 font-medium">Introduction to Generative AI</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Large Language Models</span>
+                                    <span class="text-sm text-slate-800 font-medium">Large Language Models</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">From GANs to Transformers: Generative AI Models</span>
+                                    <span class="text-sm text-slate-800 font-medium">From GANs to Transformers: Generative AI Models</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">LLM Architecture</span>
+                                    <span class="text-sm text-slate-800 font-medium">LLM Architecture</span>
                                 </div>
                             </div>
                         </div>
@@ -1455,7 +1500,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 07</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Advanced LLMs: Techniques, Applications, and Frameworks</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Advanced LLMs: Techniques, Applications, and Frameworks</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1478,37 +1523,37 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Optimizing Large Language Models</span>
+                                    <span class="text-sm text-slate-800 font-medium">Optimizing Large Language Models</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Matching LLMs to Applications</span>
+                                    <span class="text-sm text-slate-800 font-medium">Matching LLMs to Applications</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Prompt Engineering: Techniques and Best Practices</span>
+                                    <span class="text-sm text-slate-800 font-medium">Prompt Engineering: Techniques and Best Practices</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">LLM Integration for Applications</span>
+                                    <span class="text-sm text-slate-800 font-medium">LLM Integration for Applications</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Innovative Applications of LLMs</span>
+                                    <span class="text-sm text-slate-800 font-medium">Innovative Applications of LLMs</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Tools and Frameworks for LLMs</span>
+                                    <span class="text-sm text-slate-800 font-medium">Tools and Frameworks for LLMs</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">The Future of LLMs: GPT-5 and Beyond</span>
+                                    <span class="text-sm text-slate-800 font-medium">The Future of LLMs: GPT-5 and Beyond</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Creating Conversational AI with LLMs</span>
+                                    <span class="text-sm text-slate-800 font-medium">Creating Conversational AI with LLMs</span>
                                 </div>
                             </div>
                         </div>
@@ -1519,7 +1564,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 08</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Mastering Retrieval-Augmented Generation</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Mastering Retrieval-Augmented Generation</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1542,25 +1587,25 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Retrieval-Augmented Generation (RAG)</span>
+                                    <span class="text-sm text-slate-800 font-medium">Retrieval-Augmented Generation (RAG)</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">RAG in Practice: Use Cases and Solutions</span>
+                                    <span class="text-sm text-slate-800 font-medium">RAG in Practice: Use Cases and Solutions</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Integrating RAG with AI Agents and LangGraph</span>
+                                    <span class="text-sm text-slate-800 font-medium">Integrating RAG with AI Agents and LangGraph</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Developing a Complete RAG Pipeline</span>
+                                    <span class="text-sm text-slate-800 font-medium">Developing a Complete RAG Pipeline</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">RAG Architecture</span>
+                                    <span class="text-sm text-slate-800 font-medium">RAG Architecture</span>
                                 </div>
                             </div>
                         </div>
@@ -1571,7 +1616,7 @@ a, button, input, select, svg, i {
                         <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-200">
                             <div>
                                 <span class="text-xs font-mono font-bold uppercase tracking-wider text-blue-800">Module 09</span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black font-heading text-slate-900 mt-1">Navigating ML: Architectures, Tools, and Platforms</h3>
+                                <h3 class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-900 mt-1">Navigating ML: Architectures, Tools, and Platforms</h3>
                             </div>
                             <!-- Redesigned Radial Gauge Badge -->
                             <div class="flex items-center gap-3 shrink-0">
@@ -1594,29 +1639,29 @@ a, button, input, select, svg, i {
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">ML Systems: The Lifecycle and Architecture</span>
+                                    <span class="text-sm text-slate-800 font-medium">ML Systems: The Lifecycle and Architecture</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Business Use Cases for Machine Learning</span>
+                                    <span class="text-sm text-slate-800 font-medium">Business Use Cases for Machine Learning</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Exploring the Best ML Libraries</span>
+                                    <span class="text-sm text-slate-800 font-medium">Exploring the Best ML Libraries</span>
                                 </div>
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Breaking Down ML Algorithms</span>
+                                    <span class="text-sm text-slate-800 font-medium">Breaking Down ML Algorithms</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">Managing Data for Machine Learning Success</span>
+                                    <span class="text-sm text-slate-800 font-medium">Managing Data for Machine Learning Success</span>
                                 </div>
                                 <div class="flex items-start gap-3">
                                     <i class="fa-regular fa-circle-check text-blue-700 text-base mt-0.5 shrink-0"></i>
-                                    <span class="text-sm sm:text-base text-slate-800 font-medium">The Power of Open-Source ML Platforms</span>
+                                    <span class="text-sm text-slate-800 font-medium">The Power of Open-Source ML Platforms</span>
                                 </div>
                             </div>
                         </div>
@@ -1641,52 +1686,15 @@ a, button, input, select, svg, i {
         </div>
     </section>
 
-    <!-- SECTION: TOTAL VALUE ENROLLMENT BANNER -->
-    <section id="prep-kit" class="py-10 sm:py-14 bg-[#FBF9F5] scroll-mt-28">
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
-            
-            <!-- Value Comparison Banner with Background Tech Pattern -->
-            <div class="relative overflow-hidden max-w-4xl mx-auto bg-[#0A2540] text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md border border-blue-900/40">
-                
-                <!-- Background Pattern Overlay -->
-                <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                        <defs>
-                            <pattern id="prep-kit-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
-                                <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
-                                <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" fill="url(#prep-kit-pattern)" />
-                    </svg>
-                </div>
-                <!-- Subtle Ambient Glow -->
-                <div class="absolute -right-16 -top-16 w-56 h-56 bg-blue-400/15 rounded-full blur-2xl pointer-events-none"></div>
-                <div class="absolute -left-16 -bottom-16 w-56 h-56 bg-teal-300/10 rounded-full blur-2xl pointer-events-none"></div>
-
-                <div class="relative z-10 text-center sm:text-left space-y-1">
-                    <div class="text-xs font-bold text-blue-300 uppercase tracking-wider">Total Value: $1,398</div>
-                    <div class="text-xl sm:text-2xl font-black font-heading">Your All-Inclusive Fee: US $749</div>
-                    <div class="text-xs text-blue-100/90">Includes 25-week portal access, official exam voucher, and digital badge.</div>
-                </div>
-                <a href="#register-form" class="relative z-10 w-full sm:w-auto px-6 sm:px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full shrink-0 flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow hover:-translate-y-0.5">
-                    <span>Claim Your $649 Free Prep Kit</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
     <!-- SECTION: EXAM BLUEPRINT & ASSESSMENT FORMAT -->
-    <section class="relative py-16 sm:py-24 bg-[#FBF9F5] overflow-hidden">
+    <section id="exam-spec" class="relative pt-4 sm:pt-6 pb-16 sm:pb-24 bg-[#FBF9F5] overflow-hidden">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-right"></div>
 
         <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
             
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-800 tracking-wide text-center">
+                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-800 font-heading text-center">
                     Assessment Standards
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-black font-heading text-slate-900 tracking-tight">
@@ -1737,8 +1745,8 @@ a, button, input, select, svg, i {
 
                 <!-- 6 -->
                 <div class="text-center space-y-1.5 lg:px-4">
-                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center text-xl mb-2 mx-auto"><i class="fa-solid fa-rotate-left"></i></div>
-                    <div class="text-base sm:text-lg lg:text-xl font-black font-heading text-blue-700">1 Free Retake</div>
+                    <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center text-xl mb-2 mx-auto"><i class="fa-solid fa-award"></i></div>
+                    <div class="text-base sm:text-lg lg:text-xl font-black font-heading text-blue-700">1 Free Exam</div>
                     <div class="text-[11px] font-bold text-blue-800 uppercase tracking-wider">Attempt Included</div>
                 </div>
 
@@ -1770,9 +1778,9 @@ a, button, input, select, svg, i {
             <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
                 
                 <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
-                <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-300 tracking-wide text-center">
-                    Candidate Qualification
-                </div>
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-300 font-heading text-center">
+                        Candidate Qualification
+                    </div>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight">
                         CAIE™ Dual-Pathway <span class="text-blue-300">Eligibility Criteria</span>
                     </h2>
@@ -1785,12 +1793,12 @@ a, button, input, select, svg, i {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     
                     <!-- Pathway 1 -->
-                    <div id="pathway-card-1" class="bg-white border border-stone-200/90 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-xl transition-all">
+                    <div id="pathway-card-1" class="group bg-white border-2 border-stone-200/80 hover:border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider font-heading">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 group-hover:bg-blue-100 group-hover:text-blue-900 text-xs font-bold uppercase tracking-wider font-heading transition-colors duration-300">
                                 Pathway 01
                             </span>
-                            <i class="fa-solid fa-graduation-cap text-slate-400 text-lg"></i>
+                            <i class="fa-solid fa-graduation-cap text-slate-400 group-hover:text-blue-600 text-lg transition-colors duration-300"></i>
                         </div>
                         <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900">
                             Associate Degree / Diploma Stream
@@ -1808,14 +1816,12 @@ a, button, input, select, svg, i {
                     </div>
 
                     <!-- Pathway 2 -->
-                    <div id="pathway-card-2" class="bg-white border-2 border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-xl relative overflow-hidden transition-all">
+                    <div id="pathway-card-2" class="group bg-white border-2 border-stone-200/80 hover:border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-bold uppercase tracking-wider font-heading">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 group-hover:bg-blue-100 group-hover:text-blue-900 text-xs font-bold uppercase tracking-wider font-heading transition-colors duration-300">
                                 Pathway 02
                             </span>
-                            <span class="inline-flex items-center px-3.5 py-1 rounded-full bg-[#0A2540] text-white text-[11px] font-extrabold uppercase tracking-wider font-heading shadow-xs">
-                                Most Popular
-                            </span>
+                            <i class="fa-solid fa-graduation-cap text-slate-400 group-hover:text-blue-600 text-lg transition-colors duration-300"></i>
                         </div>
                         <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900">
                             Bachelor's / Advanced Degree Stream
@@ -1848,13 +1854,17 @@ a, button, input, select, svg, i {
                 
                 <!-- Left Column -->
                 <div class="lg:col-span-5 space-y-5 text-left">
-                    <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-800 tracking-wide">
-                        Frequently Asked Questions
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-800 font-heading">
+                        Got Questions?
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 leading-[1.15] tracking-tight">
-                        Everything a candidate needs to know <span class="text-blue-800">before applying.</span>
+                        Frequently Asked <span class="text-blue-800">Questions (FAQs)</span>
                     </h2>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Everything a candidate needs to know before applying.
+                    </p>
                 </div>
 
                 <!-- Right Column: Accordion Items -->
@@ -1867,7 +1877,7 @@ a, button, input, select, svg, i {
                                 What does CAIE™ stand for?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-1"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-1"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-1">
@@ -1882,7 +1892,7 @@ a, button, input, select, svg, i {
                                 Is CAIE™ an Artificial Intelligence Engineer certification?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-2"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-2"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-2">
@@ -1897,7 +1907,7 @@ a, button, input, select, svg, i {
                                 Does CAIE™ cover Generative AI and LLMs?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-3"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-3"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-3">
@@ -1912,7 +1922,7 @@ a, button, input, select, svg, i {
                                 Does CAIE™ teach prompt engineering?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-4"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-4"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-4">
@@ -1927,7 +1937,7 @@ a, button, input, select, svg, i {
                                 Does CAIE™ include Retrieval-Augmented Generation (RAG)?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-5"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-5"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-5">
@@ -1942,7 +1952,7 @@ a, button, input, select, svg, i {
                                 How long does CAIE™ take to complete?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-6"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-6"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-6">
@@ -1957,11 +1967,11 @@ a, button, input, select, svg, i {
                                 What happens if I fail the exam on the first attempt?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-7"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-7"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-7">
-                            With our current special offer, your enrollment includes <strong>1 Free Exam Retake Attempt</strong>, giving you full peace of mind to prepare and pass.
+                            With our current special offer, your enrollment includes <strong>1 Free Exam</strong> attempt, giving you full peace of mind to prepare and pass.
                         </div>
                     </div>
 
@@ -1972,7 +1982,7 @@ a, button, input, select, svg, i {
                                 What credential will I receive upon completion?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-plus" id="faq-icon-8"></i>
+                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-8"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-8">
@@ -1988,7 +1998,7 @@ a, button, input, select, svg, i {
 
     <!-- FINAL HIGH-IMPACT INSTITUTIONAL CTA SECTION -->
     <section class="relative overflow-hidden py-12 sm:py-16 bg-[#0A2540] text-white text-center">
-        <!-- Background Tech Pattern Overlay (Matching Prep Kit Pattern) -->
+        <!-- Background Tech Pattern Overlay -->
         <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                 <defs>
@@ -2003,7 +2013,7 @@ a, button, input, select, svg, i {
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-8 space-y-6 sm:space-y-7">
             
-            <div class="font-cursive text-2xl sm:text-3xl font-bold text-blue-300 tracking-wide text-center">
+            <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-blue-300 font-heading text-center">
                 Applications Open • Global Cohort
             </div>
             
@@ -2017,31 +2027,13 @@ a, button, input, select, svg, i {
                 </p>
             </div>
 
-            <!-- Flat Price & Value Line (Divided by Clean Lines, No Box Container) -->
-            <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 py-3.5 text-xs sm:text-sm text-blue-100/90 border-y border-blue-700/60 max-w-2xl mx-auto">
-                <div class="flex items-center gap-2">
-                    <span class="text-blue-200">All-Inclusive Fee:</span>
-                    <span class="font-bold text-white text-base font-heading">US $749</span>
-                </div>
-                <div class="h-4 w-[1px] bg-blue-700/60 hidden sm:block"></div>
-                <div class="flex items-center gap-2 text-blue-300 font-bold">
-                    <i class="fa-solid fa-gift"></i>
-                    <span>Free $649 Prep Kit Included</span>
-                </div>
-                <div class="h-4 w-[1px] bg-blue-700/60 hidden sm:block"></div>
-                <div class="flex items-center gap-2 text-blue-100">
-                    <i class="fa-solid fa-rotate-left text-blue-300"></i>
-                    <span>1 Free Retake</span>
-                </div>
-            </div>
-
             <!-- CTA Action Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-1">
                 <a href="#register-form" onclick="openBrochureModal('enroll'); return false;" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-white hover:bg-slate-100 text-blue-950 font-heading font-extrabold text-xs sm:text-sm uppercase tracking-wider rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
                     <span>Register for CAIE™ Now</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
-                <button type="button" onclick="openBrochureModal('syllabus')" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-transparent hover:bg-white/10 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full border border-white/40 hover:border-white transition-all flex items-center justify-center gap-2">
+                <button type="button" onclick="downloadBrochureDirect(event)" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-transparent hover:bg-white/10 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full border border-white/40 hover:border-white transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-download text-blue-300 text-xs"></i>
                     <span>Download Brochure</span>
                 </button>
@@ -2088,14 +2080,12 @@ a, button, input, select, svg, i {
                     <div class="flex items-center gap-2.5 justify-center sm:justify-start flex-wrap">
                         <span class="font-heading font-extrabold text-sm sm:text-base text-white tracking-tight">CAIE™ Certification</span>
                         <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-[11px] font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-xs">
-                            <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-                            <span>US $749</span>
-                            <span class="text-[9px] font-semibold text-blue-200 uppercase">All-Inclusive</span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span>100% Online</span>
                         </span>
                     </div>
                     <div class="hidden sm:flex flex-wrap items-center justify-center sm:justify-start gap-x-3.5 gap-y-1 text-[11px] sm:text-xs text-blue-100/85 font-medium mt-0.5">
-                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-gift text-blue-300"></i> Free $649 Prep Kit</span>
-                        <span class="hidden md:inline-flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-blue-300"></i> 1 Free Retake</span>
+                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-award text-blue-300"></i> 1 Free Exam</span>
                         <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-300"></i> 100% Self-Paced (4–25 Wks)</span>
                     </div>
                 </div>
@@ -2135,28 +2125,8 @@ a, button, input, select, svg, i {
                 <!-- Left Column: Form & Header Content -->
                 <div class="md:col-span-7 flex flex-col justify-between">
                     <div>
-                        <!-- Mode Switcher Tabs (Segmented Control) -->
-                        <div class="inline-flex items-center p-1 bg-stone-200/70 rounded-full border border-stone-300/70 mb-4 relative z-10 text-xs font-bold font-heading">
-                            <button type="button" id="modalTabEnroll" onclick="switchModalMode('enroll')" class="px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 bg-blue-800 text-white shadow-sm">
-                                <i class="fa-solid fa-graduation-cap text-[11px]"></i>
-                                <span>Enroll Now</span>
-                            </button>
-                            <button type="button" id="modalTabSyllabus" onclick="switchModalMode('syllabus')" class="px-4 py-1.5 rounded-full transition-all flex items-center gap-1.5 text-slate-600 hover:text-slate-900">
-                                <i class="fa-regular fa-file-pdf text-[11px]"></i>
-                                <span>Download Syllabus</span>
-                            </button>
-                        </div>
-
                         <!-- Header Info -->
                         <div class="mb-4 relative z-10">
-                            <div class="flex items-center gap-3 mb-2">
-                                <div id="modalIconWrap" class="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center text-base border border-blue-300/60 shadow-sm shrink-0">
-                                    <i id="modalIcon" class="fa-solid fa-graduation-cap"></i>
-                                </div>
-                                <span id="modalBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-blue-100 text-blue-900 border border-blue-200">
-                                    Fast-Track Enrollment • 4–25 Wks
-                                </span>
-                            </div>
                             <h3 id="modalTitle" class="text-xl sm:text-2xl font-black font-heading text-slate-900 tracking-tight leading-snug">
                                 Enroll in USAII® CAIE™ Program
                             </h3>
@@ -2193,6 +2163,15 @@ a, button, input, select, svg, i {
                                 <div class="relative flex items-center">
                                     <i class="fa-solid fa-phone absolute left-3.5 text-slate-400 text-xs pointer-events-none"></i>
                                     <input type="tel" name="modal_phone" required placeholder="+1 (555) 000-0000" class="w-full pl-10 pr-3.5 py-2.5 bg-white border border-stone-300 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 transition-all shadow-2xs">
+                                </div>
+                            </div>
+
+                            <!-- Country Field -->
+                            <div>
+                                <label class="block text-xs font-bold text-slate-800 mb-1">Country</label>
+                                <div class="relative flex items-center">
+                                    <i class="fa-solid fa-globe absolute left-3.5 text-slate-400 text-xs pointer-events-none"></i>
+                                    <input type="text" name="modal_country" id="modalCountry" required placeholder="United States" class="w-full pl-10 pr-3.5 py-2.5 bg-white border border-stone-300 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 transition-all shadow-2xs">
                                 </div>
                             </div>
 
@@ -2522,10 +2501,10 @@ function switchCurriculumModule(modIndex) {
             const weight = tabBtn.querySelector('.mod-weight');
             const title = tabBtn.querySelector('.mod-title');
             if (i === modIndex) {
-                tabBtn.className = "module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-blue-800 md:border-r-4 md:border-blue-800 bg-blue-800 md:bg-slate-100 text-white md:text-slate-900 font-bold snap-start shadow-sm md:shadow-none";
-                if (kicker) kicker.className = "text-xs md:text-[11px] font-mono uppercase tracking-wider text-white md:text-blue-800 font-bold mod-kicker";
-                if (weight) weight.className = "text-[10px] md:text-[11px] font-mono font-bold px-2 py-0.5 rounded-full md:rounded bg-blue-700 md:bg-blue-100 text-white md:text-blue-900 mod-weight";
-                if (title) title.className = "hidden md:block text-sm font-bold text-slate-900 mt-0.5 leading-snug mod-title";
+                tabBtn.className = "module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-blue-800 md:border-r-4 md:border-blue-800 bg-blue-800 md:bg-slate-100 text-white md:text-slate-900 font-bold snap-start shadow-sm md:shadow-none";
+                if (kicker) kicker.className = "text-xs font-mono uppercase tracking-wider text-white md:text-blue-800 font-bold mod-kicker";
+                if (weight) weight.className = "text-xs font-mono font-bold px-2 py-0.5 rounded-full md:rounded bg-blue-700 md:bg-blue-100 text-white md:text-blue-900 mod-weight";
+                if (title) title.className = "hidden md:block text-base font-bold text-slate-900 mt-1 leading-snug mod-title";
                 panel.classList.remove('hidden');
 
                 // Smoothly scroll active tab into view horizontally on mobile
@@ -2533,10 +2512,10 @@ function switchCurriculumModule(modIndex) {
                     tabBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 }
             } else {
-                tabBtn.className = "module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-3.5 md:px-4 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none";
-                if (kicker) kicker.className = "text-xs md:text-[11px] font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker";
-                if (weight) weight.className = "text-[10px] md:text-[11px] font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight";
-                if (title) title.className = "hidden md:block text-sm font-medium text-slate-700 mt-0.5 leading-snug mod-title";
+                tabBtn.className = "module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-stone-200/90 md:border-r-4 md:border-transparent bg-white md:bg-transparent text-slate-700 md:text-slate-600 hover:text-slate-900 hover:bg-stone-50 md:hover:bg-slate-50 snap-start shadow-2xs md:shadow-none";
+                if (kicker) kicker.className = "text-xs font-mono uppercase tracking-wider text-slate-600 md:text-slate-400 font-medium mod-kicker";
+                if (weight) weight.className = "text-xs font-mono font-medium px-2 py-0.5 rounded-full md:rounded bg-stone-100 md:bg-slate-100 text-slate-500 mod-weight";
+                if (title) title.className = "hidden md:block text-base font-medium text-slate-700 mt-1 leading-snug mod-title";
                 panel.classList.add('hidden');
             }
         }
@@ -2562,15 +2541,13 @@ function toggleFaq(index) {
     // Close other FAQs
     document.querySelectorAll('[id^="faq-ans-"]').forEach(el => el.classList.add('hidden'));
     document.querySelectorAll('[id^="faq-icon-"]').forEach(el => {
-        el.classList.remove('fa-minus', 'rotate-45');
-        el.classList.add('fa-plus');
+        el.classList.remove('rotate-180');
     });
 
     if (isHidden) {
         ans.classList.remove('hidden');
         if (icon) {
-            icon.classList.remove('fa-plus');
-            icon.classList.add('fa-minus');
+            icon.classList.add('rotate-180');
         }
     }
 }
@@ -2595,13 +2572,13 @@ const modalConfigs = {
         badge: 'Free Download • 2026 Edition',
         icon: 'fa-regular fa-file-pdf',
         title: 'Get Official CAIE™ Syllabus',
-        desc: 'Receive the complete candidate handbook, exam guide & prep kit details instantly.',
+        desc: 'Receive the complete candidate handbook, exam guide & curriculum architecture instantly.',
         imgBadge: 'Curriculum 2026',
         imgDesc: 'Deep dive into 8 production modules spanning ML, Deep Learning, GenAI, and RAG.',
         btnText: 'SEND ME THE OFFICIAL SYLLABUS',
         btnIcon: 'fa-solid fa-download',
         successTitle: 'Syllabus Sent Successfully!',
-        successMsg: 'Thank you! Your official CAIE™ candidate handbook and prep kit guide have been sent to your email.'
+        successMsg: 'Thank you! Your official CAIE™ candidate handbook and syllabus guide have been sent to your email.'
     }
 };
 
@@ -2652,8 +2629,13 @@ function switchModalMode(mode) {
     if (sMsg) sMsg.textContent = cfg.successMsg;
 }
 
-function openBrochureModal(mode = 'syllabus') {
-    switchModalMode(mode);
+function downloadBrochureDirect(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    window.open('https://www.usaii.org/download-brochure', '_blank');
+}
+
+function openBrochureModal(mode = 'enroll') {
+    switchModalMode('enroll');
     const modal = document.getElementById('brochureModal');
     if (modal) {
         modal.classList.remove('hidden');
@@ -2758,7 +2740,6 @@ function initSleekScrollAnimations() {
         '#about .grid > div',
         '#why-caie .grid > div',
         '#curriculum .divide-y > div',
-        '#prep-kit .grid > div',
         '#eligibility .grid > div',
         '#faqs .grid > div'
     ];
@@ -2898,26 +2879,21 @@ function initWhyPillarsHover() {
     function moveTo(element, index) {
         if (!element) return;
         currentIndex = index;
-        indicator.style.top = `${element.offsetTop}px`;
-        indicator.style.height = `${element.offsetHeight}px`;
-        indicator.style.opacity = '1';
 
-        // Update active classes for styling
+        // 1. Update active classes first so font size expands/shrinks
         items.forEach((item, idx) => {
-            const heading = item.querySelector('.pillar-title');
             if (idx === index) {
                 item.classList.add('is-active');
-                if (heading) {
-                    heading.classList.remove('text-slate-900');
-                    heading.classList.add('text-blue-800');
-                }
             } else {
                 item.classList.remove('is-active');
-                if (heading) {
-                    heading.classList.remove('text-blue-800');
-                    heading.classList.add('text-slate-900');
-                }
             }
+        });
+
+        // 2. Reposition indicator to match newly styled active element dimensions
+        requestAnimationFrame(() => {
+            indicator.style.top = `${element.offsetTop}px`;
+            indicator.style.height = `${element.offsetHeight}px`;
+            indicator.style.opacity = '1';
         });
 
         updateContext(index);
