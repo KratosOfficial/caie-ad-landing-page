@@ -1128,7 +1128,7 @@ a, button, input, select, svg, i {
                         <span class="text-[11px] font-mono font-bold text-blue-800 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/70" id="mobileModuleHeaderBadge">1 of 9</span>
                     </div>
 
-                    <div class="flex md:flex-col overflow-x-auto no-scrollbar gap-2 md:gap-1.5 py-1 px-1 pb-3 md:pb-0 snap-x">
+                    <div id="curriculumTabsList" class="flex md:flex-col overflow-x-auto no-scrollbar gap-2 md:gap-1.5 py-1 px-1 pb-3 md:pb-0 snap-x relative">
                         <button type="button" onclick="switchCurriculumModule(1)" id="mod-tab-1" class="module-tab-btn shrink-0 rounded-full md:rounded-none flex md:block items-center md:items-start justify-between md:justify-start gap-2 md:gap-0 md:w-full text-left py-2 px-3.5 md:py-2.5 md:px-3.5 transition-all border md:border-y-0 md:border-l-0 border-blue-800 md:border-r-4 md:border-blue-800 bg-blue-800 md:bg-slate-100 text-white md:text-slate-900 font-bold snap-start shadow-sm md:shadow-none">
                             <div class="flex items-center justify-between md:w-full gap-2 md:gap-0">
                                 <span class="text-xs md:text-[11px] font-mono uppercase tracking-wider text-white md:text-blue-800 font-bold mod-kicker">Module 1</span>
@@ -1204,7 +1204,7 @@ a, button, input, select, svg, i {
                 </div>
 
                 <!-- RIGHT COLUMN: Active Module Details (Exact topics from curriculum blueprint) -->
-                <div class="md:col-span-7 lg:col-span-8 min-h-[360px]">
+                <div id="curriculumDetailsContainer" class="md:col-span-7 lg:col-span-8 min-h-[360px] transition-all duration-300 ease-out">
                     
                     <!-- MODULE 1 -->
                     <div id="mod-panel-1" class="module-panel space-y-6 animate-fadeIn">
@@ -2534,7 +2534,50 @@ function switchCurriculumModule(modIndex) {
         }
     }
     updateMobileCurriculumControls(modIndex);
+    alignCurriculumDetails(modIndex);
 }
+
+// Automatically align right module details with active module on desktop/laptop
+function alignCurriculumDetails(modIndex) {
+    const detailsContainer = document.getElementById('curriculumDetailsContainer');
+    if (!detailsContainer) return;
+
+    if (window.innerWidth < 768) {
+        detailsContainer.style.marginTop = '0px';
+        return;
+    }
+
+    const activeTab = document.getElementById(`mod-tab-${modIndex}`);
+    const tabsList = document.getElementById('curriculumTabsList');
+
+    if (!activeTab || !tabsList) return;
+
+    // Calculate how far down the active tab is relative to the tabs list
+    const tabTop = activeTab.offsetTop;
+    const tabsHeight = tabsList.offsetHeight;
+    const detailsHeight = detailsContainer.offsetHeight;
+
+    // Smoothly shift right details down to meet the active module tab
+    const maxOffset = Math.max(0, tabsHeight - detailsHeight);
+    const targetOffset = Math.min(tabTop, maxOffset);
+
+    detailsContainer.style.marginTop = `${targetOffset}px`;
+
+    // Ensure the right details panel is completely in view on smaller screens (e.g. 13"-18" laptops)
+    requestAnimationFrame(() => {
+        const rect = detailsContainer.getBoundingClientRect();
+        const headerOffset = 115; // Floating navbar height + clearance buffer
+        if (rect.top < headerOffset) {
+            window.scrollBy({ top: rect.top - headerOffset, behavior: 'smooth' });
+        }
+    });
+}
+
+window.addEventListener('resize', () => {
+    if (typeof currentCurriculumModuleIndex !== 'undefined') {
+        alignCurriculumDetails(currentCurriculumModuleIndex);
+    }
+});
 
 // Backward Compatibility Helpers (if needed)
 function switchCurriculumTrack(trackNumber) { switchCurriculumModule(trackNumber); }
