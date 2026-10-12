@@ -2537,12 +2537,21 @@ function switchCurriculumModule(modIndex) {
     alignCurriculumDetails(modIndex);
 }
 
-// Automatically align right module details with active module on desktop/laptop
+// Automatically align right module details with active module on smaller desktop/laptop displays
 function alignCurriculumDetails(modIndex) {
     const detailsContainer = document.getElementById('curriculumDetailsContainer');
     if (!detailsContainer) return;
 
+    // On mobile (< 768px), details sit directly underneath
     if (window.innerWidth < 768) {
+        detailsContainer.style.marginTop = '0px';
+        return;
+    }
+
+    // Only apply on smaller displays (e.g. 18-inch or smaller laptops, viewport height < 960px or width < 1536px).
+    // On bigger displays (e.g. 24"+, 27", 32" desktop monitors), keep it at the top as before.
+    const isSmallerDisplay = window.innerHeight < 960 || window.innerWidth < 1536;
+    if (!isSmallerDisplay) {
         detailsContainer.style.marginTop = '0px';
         return;
     }
