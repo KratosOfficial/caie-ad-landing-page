@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Capture UTM & Ad Query Parameters
     captureUtmParameters();
 
-    // 2. Initialize Sticky CTA Bar on Scroll
-    initStickyCtaBar();
 
     // 3. Initialize Salary & ROI Calculator
     updateSalaryCalculator();
@@ -45,37 +43,6 @@ function captureUtmParameters() {
     }
 }
 
-// Sticky CTA Bar Scroll Listener (Triggers sooner ~25% scroll with attention hint)
-function initStickyCtaBar() {
-    const stickyBar = document.getElementById('stickyCtaBar');
-    const applyHint = document.getElementById('applyBtnHint');
-    if (!stickyBar) return;
-
-    window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
-        
-        // Show sticky bar sooner (once scrolled past hero / ~25% of the site)
-        if (scrollPercent >= 25 || scrollY > 550) {
-            stickyBar.classList.remove('translate-y-full', 'opacity-0');
-            stickyBar.classList.add('translate-y-0', 'opacity-100');
-            
-            if (applyHint) {
-                applyHint.classList.remove('opacity-0', 'scale-90');
-                applyHint.classList.add('opacity-100', 'scale-100');
-            }
-        } else {
-            stickyBar.classList.add('translate-y-full', 'opacity-0');
-            stickyBar.classList.remove('translate-y-0', 'opacity-100');
-            
-            if (applyHint) {
-                applyHint.classList.add('opacity-0', 'scale-90');
-                applyHint.classList.remove('opacity-100', 'scale-100');
-            }
-        }
-    }, { passive: true });
-}
 
 // Dynamic Urgency Countdown (Days, Hours, Minutes, Seconds)
 function initCountdownTimer() {

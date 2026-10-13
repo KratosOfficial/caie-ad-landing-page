@@ -246,15 +246,6 @@ input[type=range]::-webkit-slider-thumb:hover {
     .touch-target {
         min-height: 44px;
     }
-
-    #stickyCtaBar {
-        padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
-    }
-}
-
-/* Standout Sticky CTA Glow & Elevated Transition */
-#stickyCtaBar {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease-in-out;
 }
 
 /* ==========================================================================
@@ -334,6 +325,48 @@ a, button, input, select, svg, i {
 
 .animate-fadeIn {
     animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   CAIE LOGO PRESTIGE FLOATING & AMBIENT AURA ANIMATIONS
+   ========================================================================== */
+@keyframes caieBadgeFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 16px 32px rgba(0, 102, 204, 0.35)) drop-shadow(0 4px 12px rgba(10, 37, 64, 0.4));
+    }
+    50% {
+        transform: translateY(-12px) rotate(0.4deg);
+        filter: drop-shadow(0 28px 48px rgba(0, 102, 204, 0.55)) drop-shadow(0 8px 20px rgba(10, 37, 64, 0.45));
+    }
+}
+
+@keyframes caieAuraPulse {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.92);
+    }
+    50% {
+        opacity: 0.65;
+        transform: scale(1.08);
+    }
+}
+
+.caie-badge-animate {
+    animation: caieBadgeFloat 5.5s ease-in-out infinite;
+    will-change: transform, filter;
+}
+
+.caie-aura-animate {
+    animation: caieAuraPulse 5.5s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .caie-badge-animate,
+    .caie-aura-animate {
+        animation: none !important;
+    }
 }
 
 

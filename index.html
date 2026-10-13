@@ -337,10 +337,6 @@ input[type=range]::-webkit-slider-thumb:hover {
     scrollbar-width: none;
 }
 
-/* Standout Sticky Floating Dock Transition */
-#stickyCtaBar {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease-in-out;
-}
 
 /* ==========================================================================
    7. SLEEK SMOOTH SCROLL & REVEAL ANIMATIONS (INSTITUTIONAL LUXURY)
@@ -478,6 +474,48 @@ a, button, input, select, svg, i {
     text-shadow: 0 0 14px rgba(96, 165, 250, 0.35), 0 0 28px rgba(59, 130, 246, 0.2);
 }
 
+/* ==========================================================================
+   11. CAIE LOGO PRESTIGE FLOATING & AMBIENT AURA ANIMATIONS
+   ========================================================================== */
+@keyframes caieBadgeFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 16px 32px rgba(0, 102, 204, 0.35)) drop-shadow(0 4px 12px rgba(10, 37, 64, 0.4));
+    }
+    50% {
+        transform: translateY(-12px) rotate(0.4deg);
+        filter: drop-shadow(0 28px 48px rgba(0, 102, 204, 0.55)) drop-shadow(0 8px 20px rgba(10, 37, 64, 0.45));
+    }
+}
+
+@keyframes caieAuraPulse {
+    0%, 100% {
+        opacity: 0.35;
+        transform: scale(0.92);
+    }
+    50% {
+        opacity: 0.65;
+        transform: scale(1.08);
+    }
+}
+
+.caie-badge-animate {
+    animation: caieBadgeFloat 5.5s ease-in-out infinite;
+    will-change: transform, filter;
+}
+
+.caie-aura-animate {
+    animation: caieAuraPulse 5.5s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .caie-badge-animate,
+    .caie-aura-animate {
+        animation: none !important;
+    }
+}
+
     </style>
 </head>
 <body class="bg-[#FBF9F5] text-slate-900 font-sans antialiased selection:bg-blue-700 selection:text-white">
@@ -515,7 +553,7 @@ a, button, input, select, svg, i {
     </div>
 
     <!-- HERO MAIN SECTION (FULL BACKGROUND WITH iSTOCK-2170555843 & LINEAR GRADIENT) -->
-    <div class="relative overflow-hidden pt-28 sm:pt-36 lg:pt-40 pb-20 sm:pb-24 min-h-[760px] lg:min-h-[850px] flex items-center bg-slate-950" id="overview">
+    <div class="relative overflow-hidden pt-28 sm:pt-36 lg:pt-40 pb-60 sm:pb-48 lg:pb-36 min-h-[680px] lg:min-h-[760px] flex flex-col justify-center bg-slate-950" id="overview">
         
         <!-- Full Background Video covering entire hero & extending under header -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
@@ -558,94 +596,110 @@ a, button, input, select, svg, i {
 
                         <!-- Secondary Button -->
                         <button type="button" onclick="downloadBrochureDirect(event)" class="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm sm:text-base border border-white/30 backdrop-blur-sm shadow-sm transition-all transform hover:-translate-y-0.5">
-                            <span>Download Syllabus</span>
+                            <span>Download Brochure</span>
                             <i class="fa-solid fa-download text-xs text-white"></i>
                         </button>
                     </div>
 
                 </div>
 
-                <!-- Right Column: Floating Course Info Card -->
-                <div class="lg:col-span-5 xl:col-span-6 relative w-full pt-4 lg:pt-0">
-                    <div class="relative bg-white/95 backdrop-blur-xl rounded-3xl p-5 sm:p-8 sm:px-9 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_40px_rgba(0, 102, 204, 0.18)] border border-white/80 text-slate-900 w-full max-w-xl lg:max-w-[530px] xl:max-w-[560px] mx-auto lg:ml-auto overflow-hidden">
+                <!-- Right Column: Official CAIE™ Certification Emblem / Logo -->
+                <div class="lg:col-span-5 xl:col-span-6 relative w-full flex items-center justify-center pt-4 lg:pt-0">
+                    <div class="relative flex items-center justify-center w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[420px] xl:max-w-[460px] mx-auto select-none pointer-events-none">
+                        <!-- Multi-Layered Ambient Radial Aura behind Logo -->
+                        <div class="absolute inset-2 bg-gradient-to-tr from-blue-600/40 via-sky-400/35 to-indigo-500/40 rounded-full blur-3xl caie-aura-animate"></div>
+                        <div class="absolute -inset-4 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
                         
-                        <!-- Top Accent Gradient Line -->
-                        <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-600 via-sky-400 to-blue-700"></div>
-                        <!-- Ambient Corner Light Glow -->
-                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-400/15 rounded-full blur-2xl pointer-events-none"></div>
-
-
-                        <!-- Program Details Header -->
-                        <div class="pb-4 border-b border-slate-200/90 flex items-center justify-between">
-                            <div>
-                                <div class="text-[11px] font-black text-slate-500 uppercase tracking-widest font-heading mb-0.5">Program Details</div>
-                                <div class="text-xl sm:text-2xl font-black font-heading text-slate-950 tracking-tight">CAIE™ Specifications</div>
-                            </div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-bold font-heading">
-                                <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-                                <span>Self-Paced</span>
-                            </span>
-                        </div>
-
-                        <!-- Course Info Specs (Spacious unboxed open rows) -->
-                        <div class="py-4 space-y-4 text-xs sm:text-sm">
-                            
-                            <!-- 1. Duration -->
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="flex items-center gap-3 text-slate-700 font-medium text-sm sm:text-[15px]">
-                                    <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-sm shrink-0 border border-blue-100/90"><i class="fa-regular fa-calendar-days"></i></span>
-                                    <span>Duration</span>
-                                </span>
-                                <span class="font-bold text-slate-900 text-sm sm:text-[15px]">4–25 Weeks (Self-Paced)</span>
-                            </div>
-
-                            <!-- 2. Recommended Effort -->
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="flex items-center gap-3 text-slate-700 font-medium text-sm sm:text-[15px]">
-                                    <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-sm shrink-0 border border-blue-100/90"><i class="fa-regular fa-clock"></i></span>
-                                    <span>Recommended Effort</span>
-                                </span>
-                                <span class="font-bold text-slate-900 text-sm sm:text-[15px]">8–10 Hours / Week</span>
-                            </div>
-
-                            <!-- 3. Learning Mode -->
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="flex items-center gap-3 text-slate-700 font-medium text-sm sm:text-[15px]">
-                                    <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-sm shrink-0 border border-blue-100/90"><i class="fa-solid fa-laptop-code"></i></span>
-                                    <span>Learning Mode</span>
-                                </span>
-                                <span class="font-bold text-slate-900 text-sm sm:text-[15px]">100% Online E-Learning</span>
-                            </div>
-
-                            <!-- 4. Exam Voucher -->
-                            <div class="flex items-center justify-between gap-4">
-                                <span class="flex items-center gap-3 text-slate-900 font-semibold text-sm sm:text-[15px]">
-                                    <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-800 flex items-center justify-center text-sm shrink-0 border border-blue-200"><i class="fa-solid fa-award"></i></span>
-                                    <span>Exam Voucher</span>
-                                </span>
-                                <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-950 text-xs sm:text-[13px] font-black font-heading border border-blue-200/80">
-                                    Included + 1 Free Exam
-                                </span>
-                            </div>
-
-                        </div>
-
-                        <!-- Trust Badges Footer -->
-                        <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-600 font-semibold">
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-blue-600 text-sm"></i> Official USAII® Credential</span>
-                            <span class="flex items-center gap-2"><i class="fa-solid fa-globe text-blue-600 text-sm"></i> Recognized in 160+ Countries</span>
-                        </div>
-
+                        <!-- Floating CAIE Emblem -->
+                        <img src="https://ik.imagekit.io/edtechdigit/usaii/content/images/CAIE.png" alt="Certified Artificial Intelligence Engineer (CAIE™) Badge Logo" class="relative z-10 w-full h-auto max-h-[340px] sm:max-h-[390px] lg:max-h-[430px] object-contain caie-badge-animate" />
                     </div>
                 </div>
 
             </div>
         </div>
+    </div>
 
+    <!-- SPECIFICATIONS RECTANGLE (OVERLAPPING: HALF ON VIDEO, HALF BELOW ON LIGHT SECTION) -->
+    <div class="relative z-30 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 -mt-48 sm:-mt-36 lg:-mt-24">
+        <div class="relative bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),0_0_40px_rgba(0,102,204,0.12)] border border-white/90 text-slate-900 overflow-hidden">
+            
+            <!-- Top Accent Gradient Line -->
+            <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-600 via-sky-400 to-blue-700"></div>
+            <!-- Ambient Corner Light Glow -->
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-400/15 rounded-full blur-2xl pointer-events-none"></div>
+
+            <!-- Program Details Header Bar -->
+            <div class="pb-5 border-b border-slate-200/90 flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div class="flex items-center gap-3 flex-wrap">
+                    <span class="text-[11px] font-black text-blue-700 uppercase tracking-widest font-heading bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">Program Details</span>
+                    <div class="text-xl sm:text-2xl font-black font-heading text-slate-950 tracking-tight">CAIE™ Specifications</div>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-bold font-heading">
+                        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
+                        <span>Self-Paced</span>
+                    </span>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-600 font-semibold">
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-blue-600 text-sm"></i> Official USAII® Credential</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-globe text-blue-600 text-sm"></i> Recognized in 160+ Countries</span>
+                </div>
+            </div>
+
+            <!-- 4-Column Specifications Grid -->
+            <div class="pt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                
+                <!-- 1. Duration -->
+                <div class="flex items-center gap-3.5 bg-slate-50/80 hover:bg-blue-50/50 p-3.5 sm:p-4 rounded-xl border border-slate-200/60 transition-colors">
+                    <span class="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-lg shrink-0 border border-blue-100/90 shadow-xs">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </span>
+                    <div>
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-heading">Duration</div>
+                        <div class="text-sm sm:text-[15px] font-extrabold text-slate-900 font-heading">4–25 Weeks (Self-Paced)</div>
+                    </div>
+                </div>
+
+                <!-- 2. Recommended Effort -->
+                <div class="flex items-center gap-3.5 bg-slate-50/80 hover:bg-blue-50/50 p-3.5 sm:p-4 rounded-xl border border-slate-200/60 transition-colors">
+                    <span class="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-lg shrink-0 border border-blue-100/90 shadow-xs">
+                        <i class="fa-regular fa-clock"></i>
+                    </span>
+                    <div>
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-heading">Recommended Effort</div>
+                        <div class="text-sm sm:text-[15px] font-extrabold text-slate-900 font-heading">8–10 Hours / Week</div>
+                    </div>
+                </div>
+
+                <!-- 3. Learning Mode -->
+                <div class="flex items-center gap-3.5 bg-slate-50/80 hover:bg-blue-50/50 p-3.5 sm:p-4 rounded-xl border border-slate-200/60 transition-colors">
+                    <span class="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-lg shrink-0 border border-blue-100/90 shadow-xs">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </span>
+                    <div>
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-heading">Learning Mode</div>
+                        <div class="text-sm sm:text-[15px] font-extrabold text-slate-900 font-heading">100% Online E-Learning</div>
+                    </div>
+                </div>
+
+                <!-- 4. Exam Voucher -->
+                <div class="flex items-center gap-3.5 bg-blue-50/80 hover:bg-blue-100/50 p-3.5 sm:p-4 rounded-xl border border-blue-200/80 transition-colors">
+                    <span class="w-11 h-11 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center text-lg shrink-0 border border-blue-200 shadow-xs">
+                        <i class="fa-solid fa-award"></i>
+                    </span>
+                    <div>
+                        <div class="text-[11px] font-bold text-blue-700 uppercase tracking-wider font-heading">Exam Voucher</div>
+                        <div class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-blue-600 text-white text-xs font-black font-heading mt-0.5 shadow-xs">
+                            Included + 1 Free Exam
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <!-- TRUSTED ENTERPRISE HIRING NETWORK STRIP (CONTINUOUS SCROLLER WITH FADE MASKS) -->
-    <section class="bg-[#FBF9F5] py-8 sm:py-10 overflow-hidden" style="background-color: #FBF9F5;">
+    <section class="bg-[#FBF9F5] pt-10 sm:pt-12 pb-8 sm:pb-10 overflow-hidden" style="background-color: #FBF9F5;">
         <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-5">
                 USAII® Certified Professionals & Alumni Work At Leading Global Technology Enterprises
@@ -2087,46 +2141,6 @@ a, button, input, select, svg, i {
         </div>
     </footer>
 
-    <!-- STICKY BOTTOM APPLY NOW CONVERSION BAR (MATCHING SITE THEME: FLOATING DOCK IN INSTITUTIONAL NAVY BLUE WITH WHITE CTA) -->
-    <div id="stickyCtaBar" class="fixed bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 w-[95%] max-w-[1440px] z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="bg-[#0A2540]/95 backdrop-blur-md rounded-2xl sm:rounded-3xl border border-blue-600/40 shadow-[0_16px_45px_rgba(10, 37, 64, 0.35)] py-2.5 sm:py-3.5 px-3.5 sm:px-8 pointer-events-auto flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-6 text-white">
-            
-            <!-- Left: Certification Details & CAIE Logo -->
-            <div class="flex items-center gap-3 sm:gap-4 text-center sm:text-left">
-                <div class="h-10 sm:h-12 w-auto hidden sm:flex items-center justify-center shrink-0">
-                    <img src="https://ik.imagekit.io/edtechdigit/usaii/content/images/CAIC.png" alt="CAIE™ Certification" class="h-9 sm:h-11 w-auto object-contain brightness-110" />
-                </div>
-                <div>
-                    <div class="flex items-center gap-2.5 justify-center sm:justify-start flex-wrap">
-                        <span class="font-heading font-extrabold text-sm sm:text-base text-white tracking-tight">CAIE™ Certification</span>
-                        <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-[11px] font-bold uppercase tracking-wider inline-flex items-center gap-1.5 shadow-xs">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                            <span>100% Online</span>
-                        </span>
-                    </div>
-                    <div class="hidden sm:flex flex-wrap items-center justify-center sm:justify-start gap-x-3.5 gap-y-1 text-[11px] sm:text-xs text-blue-100/85 font-medium mt-0.5">
-                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-award text-blue-300"></i> 1 Free Exam</span>
-                        <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-300"></i> 100% Self-Paced (4–25 Wks)</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Action Buttons -->
-            <div class="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto justify-center shrink-0">
-                <a href="#eligibility" class="hidden md:inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-transparent hover:bg-white/10 border border-blue-400/40 hover:border-blue-300 text-blue-100 text-xs sm:text-sm font-bold transition-all shadow-xs">
-                    <i class="fa-solid fa-calculator text-blue-300 text-xs"></i>
-                    <span>Check Eligibility</span>
-                </a>
-                
-                <a href="#register-form" id="stickyApplyBtn" onclick="openBrochureModal('enroll'); return false;" class="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 rounded-full bg-white hover:bg-slate-100 text-blue-950 font-heading font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
-                    <span>Apply for CAIE™</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-            </div>
-
-        </div>
-    </div>
-
     <!-- DUAL-PURPOSE INTERACTIVE MODAL (ENROLL & DOWNLOAD SYLLABUS WITH RIGHT IMAGE) -->
     <div id="brochureModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/75 backdrop-blur-md p-3 sm:p-5 transition-all duration-300 overflow-y-auto overflow-x-hidden">
         <div class="relative bg-[#FBF9F5] border border-stone-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-8 max-w-3xl lg:max-w-4xl w-full text-left shadow-[0_25px_60px_-15px_rgba(10,37,64,0.35)] overflow-hidden my-auto">
@@ -2244,8 +2258,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Capture UTM & Ad Query Parameters
     captureUtmParameters();
 
-    // 2. Initialize Sticky CTA Bar on Scroll
-    initStickyCtaBar();
+    // 2. Initialize Floating Header Shadow on Scroll
+    initFloatingHeaderShadow();
 
     // 3. Initialize Salary & ROI Calculator
     updateSalaryCalculator();
@@ -2299,39 +2313,21 @@ function captureUtmParameters() {
     }
 }
 
-// Sticky CTA Bar Scroll Listener (Triggers past hero ~20%, auto-hides at bottom CTA / footer)
-function initStickyCtaBar() {
-    const stickyBar = document.getElementById('stickyCtaBar');
-    if (!stickyBar) return;
+// Floating Header Shadow Scroll Listener
+function initFloatingHeaderShadow() {
+    const floatHeader = document.getElementById('mainFloatingHeader');
+    if (!floatHeader) return;
 
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY || window.pageYOffset;
-        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
 
         // Enhance sticky floating header shadow on scroll (keeping background solid)
-        const floatHeader = document.getElementById('mainFloatingHeader');
-        if (floatHeader) {
-            if (scrollY > 25) {
-                floatHeader.classList.add('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
-                floatHeader.classList.remove('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
-            } else {
-                floatHeader.classList.remove('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
-                floatHeader.classList.add('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
-            }
-        }
-        
-        // Hide sticky bar when nearing bottom CTA section & footer (avoids obstruction and duplication)
-        const distanceFromBottom = document.documentElement.scrollHeight - (scrollY + window.innerHeight);
-        const isNearBottom = distanceFromBottom < 650;
-
-        // Show sticky bar once scrolled past hero / ~20%, and keep visible until reaching the bottom CTA
-        if ((scrollPercent >= 20 || scrollY > 500) && !isNearBottom) {
-            stickyBar.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
-            stickyBar.classList.add('translate-y-0', 'opacity-100');
+        if (scrollY > 25) {
+            floatHeader.classList.add('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
+            floatHeader.classList.remove('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
         } else {
-            stickyBar.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
-            stickyBar.classList.remove('translate-y-0', 'opacity-100');
+            floatHeader.classList.remove('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
+            floatHeader.classList.add('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
         }
     }, { passive: true });
 }
