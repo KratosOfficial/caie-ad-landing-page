@@ -388,10 +388,11 @@ function initSleekScrollAnimations() {
     const selectors = [
         'section > div > .text-center',
         '#about .grid > div',
-        '#why-caie .grid > div',
         '#curriculum .divide-y > div',
         '#salary-calculator > div > div',
         '#eligibility .grid > div',
+        '#resources .grid > div',
+        '#credential .grid > div',
         '#program-comparison table',
         '#faqs .grid > div'
     ];

@@ -6,9 +6,17 @@
     <title>Certified Artificial Intelligence Engineer (CAIE™) | USAII® Official Certification</title>
     <meta name="description" content="Build Practical AI, Machine Learning, Generative AI, LLM & RAG Skills with an Industry-Validated Credential from the United States Artificial Intelligence Institute (USAII®).">
     
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <!-- Preconnect & DNS-Prefetch for Critical Origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://ik.imagekit.io">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+    <!-- Preload Hero LCP Image -->
+    <link rel="preload" as="image" href="https://ik.imagekit.io/edtechdigit/usaii/content/images/CAIE.png" fetchpriority="high">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter with font-display swap -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
@@ -49,8 +57,9 @@
         }
     </script>
     
-    <!-- FontAwesome 6 Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- FontAwesome 6 Icons (Non-render-blocking with fallback) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
     <!-- Custom Stylesheet (Embedded Inline) -->
     <style>
@@ -381,9 +390,23 @@ input[type=range]::-webkit-slider-thumb:hover {
     left: 160%;
 }
 
-/* Subtle Link & Icon Smooth Transitions */
-a, button, input, select, svg, i {
+/* Subtle Link & Button Transitions (Scoped to avoid universal SVG/icon recalculations) */
+a, button, input, select {
     transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Performance: Defer off-screen rendering for below-the-fold sections to boost FPS & load speed */
+#why-caie,
+#career,
+#eligibility,
+#curriculum,
+#resources,
+#exam-spec,
+#credential,
+#program-comparison,
+#faqs {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 650px;
 }
 
 /* Respect Accessibility Reduced Motion */
@@ -415,56 +438,132 @@ a, button, input, select, svg, i {
     }
 }
 
+
+
 /* ==========================================================================
-   9. WHY CAIE PILLARS - DYNAMIC ACTIVE SIZE SCALING
+   9. RESOURCE CENTER CLEAN TEXT ROLLER
    ========================================================================== */
-.why-pillar-item {
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.resource-roller-container {
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
 }
 
-/* Inactive items: reduced font size, muted soft blue color */
-.why-pillar-item .pillar-title {
-    font-size: 0.8125rem !important; /* 13px */
-    line-height: 1.35;
-    color: rgba(191, 219, 254, 0.55);
+.resource-roller-track {
+    position: relative;
+    width: 100%;
+    transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1);
+    will-change: transform;
+}
+
+.resource-roller-track.no-transition {
+    transition: none !important;
+}
+
+.resource-roller-item {
+    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1);
+    opacity: 0;
+    transform: scale(0.94);
+    transform-origin: left center;
+    pointer-events: none;
+    padding: 0.85rem 0;
+}
+
+/* Inactive adjacent items (Top & Bottom) */
+.resource-roller-item.is-adjacent {
+    opacity: 0.45;
+    transform: scale(0.95);
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.resource-roller-item.is-adjacent:hover {
+    opacity: 0.75;
+    transform: scale(0.97);
+}
+
+.resource-roller-item.is-adjacent .res-title {
+    color: rgba(226, 232, 240, 0.72);
+    font-size: 1.1rem;
     font-weight: 600;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
 }
 
-.why-pillar-item .pillar-desc {
-    font-size: 0.75rem !important; /* 12px */
+.resource-roller-item.is-adjacent:hover .res-title {
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.resource-roller-item.is-adjacent .res-desc {
+    color: rgba(148, 163, 184, 0.65);
+    font-size: 0.825rem;
+    margin-top: 0.25rem;
     line-height: 1.45;
-    color: rgba(191, 219, 254, 0.35);
-    margin-top: 0.2rem;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: color 0.3s ease;
 }
 
-.why-pillar-item:hover:not(.is-active) .pillar-title {
-    color: rgba(255, 255, 255, 0.9);
+.resource-roller-item.is-adjacent:hover .res-desc {
+    color: rgba(203, 213, 225, 0.85);
 }
 
-/* Active item: big font size (same size as original), bold white prominent */
-.why-pillar-item.is-active .pillar-title {
-    font-size: 1.125rem !important; /* 18px */
-    line-height: 1.25;
+/* Active center item */
+.resource-roller-item.is-active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.resource-roller-item.is-active .res-title {
     color: #ffffff !important;
+    background: linear-gradient(135deg, #ffffff 65%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.45rem !important;
     font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.18));
+}
+
+.resource-roller-item.is-active .res-desc {
+    color: #cbd5e1 !important;
+    font-size: 0.925rem !important;
+    margin-top: 0.35rem;
+    line-height: 1.55;
+    font-weight: 400;
+    max-width: 34rem;
 }
 
 @media (min-width: 640px) {
-    .why-pillar-item .pillar-title {
-        font-size: 0.875rem !important; /* 14px on sm */
+    .resource-roller-container {
+        height: 350px;
     }
-    .why-pillar-item.is-active .pillar-title {
-        font-size: 1.25rem !important; /* 20px on sm */
+    .resource-roller-item.is-active .res-title {
+        font-size: 1.65rem !important;
+    }
+    .resource-roller-item.is-active .res-desc {
+        font-size: 0.95rem !important;
+    }
+    .resource-roller-item.is-adjacent .res-title {
+        font-size: 1.15rem;
+    }
+    .resource-roller-item.is-adjacent .res-desc {
+        font-size: 0.85rem;
     }
 }
-
-.why-pillar-item.is-active .pillar-desc {
-    font-size: 0.875rem !important; /* 14px */
-    line-height: 1.55;
-    color: rgba(219, 234, 254, 0.92) !important;
-    margin-top: 0.375rem;
+@media (min-width: 1024px) {
+    .resource-roller-container {
+        height: 360px;
+    }
+    .resource-roller-item.is-active .res-title {
+        font-size: 1.8rem !important;
+    }
+    .resource-roller-item.is-active .res-desc {
+        font-size: 0.975rem !important;
+    }
 }
 
 /* ==========================================================================
@@ -528,7 +627,7 @@ a, button, input, select, svg, i {
                 <!-- Left: USAII Official Logo -->
                 <div class="flex items-center gap-3">
                     <a href="#" class="flex items-center group py-1 shrink-0">
-                        <img src="https://ik.imagekit.io/edtechdigit/usaii/content/images/official-logo/usaii-logo-black.png" alt="USAII® - United States Artificial Intelligence Institute" class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]" />
+                        <img src="https://ik.imagekit.io/edtechdigit/usaii/content/images/official-logo/usaii-logo-black.png" alt="USAII® - United States Artificial Intelligence Institute" width="160" height="36" fetchpriority="high" class="h-7 sm:h-8 md:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]" />
                     </a>
                 </div>
 
@@ -557,7 +656,7 @@ a, button, input, select, svg, i {
         
         <!-- Full Background Video covering entire hero & extending under header -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
-            <video autoplay loop muted playsinline preload="auto" class="w-full h-full object-cover object-center">
+            <video autoplay loop muted playsinline preload="metadata" class="w-full h-full object-cover object-center">
                 <source src="Images/stock video.mp4" type="video/mp4">
             </video>
             <!-- Linear Gradient on Left Side so the text is crisp, high-contrast & visible, leaving the video fully radiant -->
@@ -611,7 +710,7 @@ a, button, input, select, svg, i {
                         <div class="absolute -inset-4 bg-blue-500/15 rounded-full blur-2xl pointer-events-none"></div>
                         
                         <!-- Floating CAIE Emblem -->
-                        <img src="https://ik.imagekit.io/edtechdigit/usaii/content/images/CAIE.png" alt="Certified Artificial Intelligence Engineer (CAIE™) Badge Logo" class="relative z-10 w-full h-auto max-h-[340px] sm:max-h-[390px] lg:max-h-[430px] object-contain caie-badge-animate" />
+                        <img src="https://ik.imagekit.io/edtechdigit/usaii/content/images/CAIE.png" alt="Certified Artificial Intelligence Engineer (CAIE™) Badge Logo" width="430" height="430" fetchpriority="high" decoding="async" class="relative z-10 w-full h-auto max-h-[340px] sm:max-h-[390px] lg:max-h-[430px] object-contain caie-badge-animate" />
                     </div>
                 </div>
 
@@ -922,20 +1021,20 @@ a, button, input, select, svg, i {
         </div>
     </section>
 
-    <!-- SECTION: WHY EARN THE USAII® CAIE™ CERTIFICATION? -->
-    <section id="why-caie" class="relative scroll-mt-28">
+    <!-- SECTION: ELIGIBILITY & DUAL-PATHWAY -->
+    <section id="eligibility" class="relative scroll-mt-28">
         <!-- Institutional Blue Strip -->
-        <div class="relative bg-[#0A2540] text-white pt-14 sm:pt-20 pb-14 sm:pb-20 overflow-hidden">
+        <div class="relative bg-[#0A2540] text-white py-[100px] overflow-hidden" style="padding-top: 100px; padding-bottom: 100px;">
             <!-- Background Pattern Overlay -->
             <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
                 <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                     <defs>
-                        <pattern id="why-caie-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
+                        <pattern id="eligibility-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
                             <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
                             <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
                         </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#why-caie-strip-pattern)" />
+                    <rect width="100%" height="100%" fill="url(#eligibility-strip-pattern)" />
                 </svg>
             </div>
             <!-- Subtle Ambient Glow -->
@@ -944,214 +1043,73 @@ a, button, input, select, svg, i {
 
             <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
                 
-                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
                     <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                        Career Advancement
+                        Candidate Qualification
                     </div>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight">
-                        Why Earn the USAII® <span class="text-blue-300 heading-glow-text">CAIE™ Certification?</span>
+                        CAIE™ Dual-Pathway <span class="text-blue-300 heading-glow-text">Eligibility Criteria</span>
                     </h2>
-                    <p class="text-blue-100/85 text-base sm:text-lg leading-relaxed">
-                        CAIE™ is structured around both <strong class="text-white">professional AI knowledge and practical skill development</strong>. Rather than focusing on a single technology, the curriculum progresses from Machine Learning fundamentals into Deep Learning, NLP, Computer Vision, Generative AI, LLM applications, RAG, MLOps and ML architectures.
+                    <p class="text-blue-100/90 text-sm sm:text-base leading-relaxed">
+                        USAII® provides two streamlined pathways to ensure aspiring AI engineers and technical professionals can enroll seamlessly.
                     </p>
                 </div>
 
-                <!-- 2-Column Layout (Matching Reference Image) -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch max-w-7xl mx-auto">
+                <!-- Dual Pathway Split Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     
-                    <!-- Left: Text Pillars with Moving Blue Indicator (Matches Reference Image) -->
-                    <div id="why-caie-pillars-container" class="lg:col-span-5 relative space-y-4 sm:space-y-5 flex flex-col justify-between py-1">
-                        
-                        <!-- Smooth Moving Active Blue Bar Indicator (By default on first item) -->
-                        <div id="pillar-active-indicator" class="absolute left-0 w-[4px] rounded-full bg-blue-400 shadow-[0_0_12px_rgba(96,165,250,0.85)] transition-all duration-300 ease-out z-10 pointer-events-none" style="top: 0; height: 72px;"></div>
-
-                        <!-- Item 1: Default Active -->
-                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group is-active" data-index="0">
-                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
-                            <h3 class="pillar-title font-heading">
-                                Foundation in AI & Machine Learning
-                            </h3>
-                            <p class="pillar-desc">
-                                Master core AI principles, supervised and unsupervised learning, mathematical foundations, and model evaluation metrics.
-                            </p>
+                    <!-- Pathway 1 -->
+                    <div id="pathway-card-1" class="group bg-white border-2 border-stone-200/80 hover:border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 group-hover:bg-blue-100 group-hover:text-blue-900 text-xs font-bold uppercase tracking-wider font-heading transition-colors duration-300">
+                                Pathway 01
+                            </span>
                         </div>
-
-                        <!-- Item 2 -->
-                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="1">
-                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
-                            <h3 class="pillar-title font-heading">
-                                Generative AI, LLMs & Prompt Engineering
-                            </h3>
-                            <p class="pillar-desc">
-                                Explore transformer architectures, fine-tuning, prompt engineering strategies, and production-grade LLM applications.
-                            </p>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="2">
-                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
-                            <h3 class="pillar-title font-heading">
-                                RAG Pipelines & Vector Databases
-                            </h3>
-                            <p class="pillar-desc">
-                                Build advanced retrieval-augmented generation systems, semantic search engines, and real-time enterprise knowledge integrations.
-                            </p>
-                        </div>
-
-                        <!-- Item 4 -->
-                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="3">
-                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
-                            <h3 class="pillar-title font-heading">
-                                Deep Learning, NLP & Computer Vision
-                            </h3>
-                            <p class="pillar-desc">
-                                Implement neural networks, CNNs, RNNs, natural language processing models, and multimodal computer vision systems.
-                            </p>
-                        </div>
-
-                        <!-- Item 5 -->
-                        <div class="why-pillar-item relative pl-5 sm:pl-6 py-1 cursor-pointer group" data-index="4">
-                            <span class="pillar-track absolute left-0 top-0 bottom-0 w-[3.5px] rounded-full bg-blue-900/50"></span>
-                            <h3 class="pillar-title font-heading">
-                                MLOps, Production & Global Certification
-                            </h3>
-                            <p class="pillar-desc">
-                                Deploy, monitor, and scale AI models in production with MLOps pipelines and earn your globally validated USAII® credential.
-                            </p>
-                        </div>
-
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900">
+                            Associate Degree / Diploma Stream
+                        </h3>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
+                                <span>Associate Degree or Diploma in STEM / Computing or equivalent</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
+                                <span>At least 2 years of programming experience (Python / Java / C++ etc.)</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Right: Platform & Course Wireframe Mockup Card (Sized to match left text height) -->
-                    <div class="lg:col-span-7 relative flex items-stretch">
-                        <div class="relative w-full h-full min-h-[360px] bg-white rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5),0_0_40px_rgba(0,102,204,0.18)] border border-blue-900/40 overflow-hidden flex items-center justify-center p-3 sm:p-5">
-                        
-                            <!-- Background Wireframe Canvas Grid (Fills background without forcing height) -->
-                            <div class="absolute inset-0 p-4 sm:p-5 opacity-60 pointer-events-none select-none flex flex-col justify-center overflow-hidden">
-                                <div class="grid grid-cols-12 gap-2 sm:gap-2.5">
-                                    
-                                    <!-- Wireframe Card 1: Header / Top Nav Wireframe -->
-                                    <div class="col-span-4 rounded-xl border border-slate-200 p-2.5 space-y-1.5 bg-slate-50/60">
-                                        <div class="w-6 h-6 rounded-md border border-slate-200 bg-white"></div>
-                                        <div class="w-full h-1.5 rounded bg-slate-200"></div>
-                                        <div class="w-2/3 h-1.5 rounded bg-slate-200"></div>
-                                    </div>
-
-                                    <!-- Wireframe Card 2: 3x2 Module Boxes with Crossed Diagonals -->
-                                    <div class="col-span-8 rounded-xl border border-slate-200 p-2 bg-slate-50/60 grid grid-cols-3 gap-1.5">
-                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-square rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                    </div>
-
-                                    <!-- Wireframe Card 3: 2x2 Larger Module Boxes with Crossed Diagonals -->
-                                    <div class="col-span-8 rounded-xl border border-slate-200 p-2 sm:p-2.5 bg-slate-50/60 grid grid-cols-2 gap-2">
-                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="aspect-[4/3] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                    </div>
-
-                                    <!-- Wireframe Card 4: Side Panel Blocks -->
-                                    <div class="col-span-4 rounded-xl border border-slate-200 p-2 bg-slate-50/60 space-y-2">
-                                        <div class="aspect-[3/2] rounded-lg border border-slate-200 bg-white relative overflow-hidden flex items-center justify-center">
-                                            <svg class="w-full h-full text-slate-200" viewBox="0 0 100 100" preserveAspectRatio="none"><line x1="0" y1="0" x2="100" y2="100" stroke="currentColor" stroke-width="1.5"/><line x1="100" y1="0" x2="0" y2="100" stroke="currentColor" stroke-width="1.5"/></svg>
-                                        </div>
-                                        <div class="w-full h-1.5 rounded bg-slate-200"></div>
-                                        <div class="w-3/4 h-1.5 rounded bg-slate-200"></div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <!-- Central Floating Smartphone Mockup Card (Enlarged and Prominent) -->
-                            <div class="relative z-10 flex items-center justify-center p-2 pointer-events-none">
-                                <div id="mockupPhoneCard" class="w-[265px] sm:w-[295px] md:w-[315px] bg-white rounded-[26px] sm:rounded-[30px] border-2 border-blue-500 shadow-[0_22px_55px_rgba(0,102,204,0.25)] p-4 sm:p-4.5 space-y-3 pointer-events-auto transform -rotate-1 hover:rotate-0 transition-all duration-300">
-                                    
-                                    <!-- Phone Header / Search Bar -->
-                                    <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-                                        <span class="text-xs sm:text-[13px] font-bold text-slate-900 font-heading">Search</span>
-                                        <i class="fa-solid fa-magnifying-glass text-[11px] text-slate-400"></i>
-                                    </div>
-                                    <div class="w-full py-2 px-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] sm:text-xs text-slate-600 flex items-center gap-2 shadow-2xs">
-                                        <i class="fa-solid fa-sparkles text-blue-600 text-[10px] shrink-0"></i>
-                                        <span id="mockupSearchInput" class="truncate font-medium">Machine Learning & Python...</span>
-                                    </div>
-
-                                    <!-- Dynamic Active Module Block -->
-                                    <div class="space-y-1.5 sm:space-y-2">
-                                        <div class="flex items-center justify-between">
-                                            <span id="mockupCategory" class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Module 01 • Fundamentals</span>
-                                            <span id="mockupTrack" class="text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">Core AI</span>
-                                        </div>
-                                        <div class="p-2.5 sm:p-3 rounded-2xl bg-gradient-to-br from-blue-50 to-teal-50/50 border border-blue-200 flex items-center gap-2.5 sm:gap-3">
-                                            <div id="mockupIcon" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center text-xs sm:text-sm shadow-sm shrink-0">
-                                                <i class="fa-solid fa-chart-line"></i>
-                                            </div>
-                                            <div class="min-w-0">
-                                                <p id="mockupTitle" class="text-[11px] sm:text-xs font-bold text-slate-900 leading-tight truncate">Supervised & Unsupervised ML</p>
-                                                <p id="mockupSub" class="text-[9.5px] sm:text-[10.5px] text-blue-700 font-medium truncate mt-0.5">Regression, Ensembles & Metrics</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Interactive Practice Lab Dynamic Block -->
-                                    <div>
-                                        <span class="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Interactive Code Lab</span>
-                                        <div class="flex items-center justify-between text-[10.5px] sm:text-[11.5px] font-semibold text-slate-700 bg-slate-50/90 rounded-xl p-2 sm:p-2.5 border border-slate-200/70">
-                                            <div class="flex items-center gap-2 min-w-0">
-                                                <i id="mockupLabIcon" class="fa-solid fa-code text-[11px] text-blue-600 shrink-0"></i>
-                                                <span id="mockupLabTitle" class="truncate">Scikit-Learn & Math Foundations</span>
-                                            </div>
-                                            <span class="text-blue-700 font-bold text-[9px] sm:text-[10px] px-2 py-0.5 rounded bg-blue-100 shrink-0 ml-1.5">Active</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bottom Mini Nav Bar -->
-                                    <div class="flex items-center justify-around border-t border-slate-100 pt-2 text-slate-400 text-xs sm:text-sm">
-                                        <i class="fa-solid fa-house text-blue-600"></i>
-                                        <i class="fa-solid fa-book-open"></i>
-                                        <i class="fa-solid fa-certificate"></i>
-                                        <i class="fa-solid fa-user"></i>
-                                    </div>
-
-                                </div>
-                            </div>
-
+                    <!-- Pathway 2 -->
+                    <div id="pathway-card-2" class="group bg-white border-2 border-stone-200/80 hover:border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
+                        <div class="flex items-center justify-between">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 group-hover:bg-blue-100 group-hover:text-blue-900 text-xs font-bold uppercase tracking-wider font-heading transition-colors duration-300">
+                                Pathway 02
+                            </span>
                         </div>
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900">
+                            Bachelor's / Advanced Degree Stream
+                        </h3>
+                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
+                                <span>Currently pursuing or completed Bachelor's, Master's, or Ph.D. Degree</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
+                                <span class="text-blue-950 font-bold">No prior work experience required!</span>
+                            </li>
+                        </ul>
                     </div>
+
+                </div>
 
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- SECTION: 9 PRINCIPAL CURRICULUM AREAS (WITH CATEGORY FILTER PILLS) -->
-    <section id="curriculum" class="relative pt-12 sm:pt-16 pb-4 sm:pb-6 bg-[#FBF9F5] overflow-hidden scroll-mt-28">
+    <section id="curriculum" class="relative py-[100px] bg-[#FBF9F5] overflow-hidden scroll-mt-28" style="padding-top: 100px; padding-bottom: 100px;">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-dual"></div>
 
@@ -1747,8 +1705,152 @@ a, button, input, select, svg, i {
         </div>
     </section>
 
+    <!-- SECTION: COMPREHENSIVE RESOURCES FOR PREPARATION -->
+    <section id="resources" class="relative scroll-mt-28">
+        <!-- Institutional Blue Strip -->
+        <div class="relative bg-[#0A2540] text-white pt-14 sm:pt-20 pb-14 sm:pb-20 overflow-hidden">
+            <!-- Background Pattern Overlay -->
+            <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                    <defs>
+                        <pattern id="resources-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
+                            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#resources-strip-pattern)" />
+                </svg>
+            </div>
+            <!-- Subtle Ambient Glow -->
+            <div class="absolute -right-24 -top-24 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
+                        Preparation Ecosystem
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight">
+                        Comprehensive Resources Designed for <span class="text-blue-300 heading-glow-text">CAIE™ Preparation</span>
+                    </h2>
+                    <p class="text-blue-100/90 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                        Everything in the resource center is designed to support self-paced preparation and practical understanding, in 8 to 10 hours per week.
+                    </p>
+                </div>
+
+                <!-- 2-Column Architecture: Left Clean Text Roller + Right Kit Image -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center max-w-7xl mx-auto">
+                    
+                    <!-- Left: Clean Large Text Roller (Center Active) -->
+                    <div class="lg:col-span-7">
+                        <div id="resource-roller-box" class="resource-roller-container select-none">
+                            <div id="resource-roller-track" class="resource-roller-track flex flex-col">
+                                
+                                <!-- Set 1 (Buffer) -->
+                                <div class="resource-roller-item" data-item-index="0">
+                                    <h3 class="res-title font-heading tracking-tight">3 Personalized Study Books</h3>
+                                    <p class="res-desc">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="1">
+                                    <h3 class="res-title font-heading tracking-tight">HD Self-Paced Video Lectures</h3>
+                                    <p class="res-desc">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="2">
+                                    <h3 class="res-title font-heading tracking-tight">Shareable Digital Credential Badge</h3>
+                                    <p class="res-desc">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="3">
+                                    <h3 class="res-title font-heading tracking-tight">Regularly Updated AI Curriculum</h3>
+                                    <p class="res-desc">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="4">
+                                    <h3 class="res-title font-heading tracking-tight">Flexible Interest-Free Payment</h3>
+                                    <p class="res-desc">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="5">
+                                    <h3 class="res-title font-heading tracking-tight">Real-World Industry Use Cases</h3>
+                                    <p class="res-desc">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
+                                </div>
+
+                                <!-- Set 2 (Active Main Window) -->
+                                <div class="resource-roller-item is-active" data-item-index="0">
+                                    <h3 class="res-title font-heading tracking-tight">3 Personalized Study Books</h3>
+                                    <p class="res-desc">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
+                                </div>
+                                <div class="resource-roller-item is-adjacent" data-item-index="1">
+                                    <h3 class="res-title font-heading tracking-tight">HD Self-Paced Video Lectures</h3>
+                                    <p class="res-desc">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="2">
+                                    <h3 class="res-title font-heading tracking-tight">Shareable Digital Credential Badge</h3>
+                                    <p class="res-desc">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="3">
+                                    <h3 class="res-title font-heading tracking-tight">Regularly Updated AI Curriculum</h3>
+                                    <p class="res-desc">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="4">
+                                    <h3 class="res-title font-heading tracking-tight">Flexible Interest-Free Payment</h3>
+                                    <p class="res-desc">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="5">
+                                    <h3 class="res-title font-heading tracking-tight">Real-World Industry Use Cases</h3>
+                                    <p class="res-desc">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
+                                </div>
+
+                                <!-- Set 3 (Loop Continuation Buffer) -->
+                                <div class="resource-roller-item" data-item-index="0">
+                                    <h3 class="res-title font-heading tracking-tight">3 Personalized Study Books</h3>
+                                    <p class="res-desc">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="1">
+                                    <h3 class="res-title font-heading tracking-tight">HD Self-Paced Video Lectures</h3>
+                                    <p class="res-desc">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="2">
+                                    <h3 class="res-title font-heading tracking-tight">Shareable Digital Credential Badge</h3>
+                                    <p class="res-desc">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="3">
+                                    <h3 class="res-title font-heading tracking-tight">Regularly Updated AI Curriculum</h3>
+                                    <p class="res-desc">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="4">
+                                    <h3 class="res-title font-heading tracking-tight">Flexible Interest-Free Payment</h3>
+                                    <p class="res-desc">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
+                                </div>
+                                <div class="resource-roller-item" data-item-index="5">
+                                    <h3 class="res-title font-heading tracking-tight">Real-World Industry Use Cases</h3>
+                                    <p class="res-desc">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Kit Mockup Showcase -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+                        <!-- Radiant Ambient Glow behind Kit -->
+                        <div class="absolute inset-4 sm:inset-6 bg-gradient-to-tr from-blue-600/35 via-cyan-400/25 to-indigo-500/30 rounded-3xl blur-3xl pointer-events-none"></div>
+                        
+                        <img src="Images/caic-pdm-kits.png" 
+                             onerror="this.onerror=null; this.src='https://ik.imagekit.io/edtechdigit/usaii/content/images/caic-pdm-kits.png';"
+                             alt="Comprehensive Resources & Study Kits for CAIE™ Preparation" 
+                             width="540" height="420" decoding="async"
+                             class="relative z-10 w-full max-w-md lg:max-w-none h-auto object-contain rounded-2xl drop-shadow-[0_25px_45px_rgba(0,0,0,0.65)] select-none" 
+                             loading="lazy" />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION: EXAM BLUEPRINT & ASSESSMENT FORMAT -->
-    <section id="exam-spec" class="relative pt-4 sm:pt-6 pb-16 sm:pb-24 bg-[#FBF9F5] overflow-hidden">
+    <section id="exam-spec" class="relative py-[100px] bg-[#FBF9F5] overflow-hidden" style="padding-top: 100px; padding-bottom: 100px;">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-right"></div>
 
@@ -1816,20 +1918,20 @@ a, button, input, select, svg, i {
         </div>
     </section>
 
-    <!-- SECTION: ELIGIBILITY & DUAL-PATHWAY -->
-    <section id="eligibility" class="relative scroll-mt-28">
+    <!-- SECTION: YOUR CREDENTIAL & CERTIFICATE PREVIEW -->
+    <section id="credential" class="relative scroll-mt-28">
         <!-- Institutional Blue Strip -->
-        <div class="relative bg-[#0A2540] text-white pt-14 sm:pt-18 pb-14 sm:pb-18 overflow-hidden">
+        <div class="relative bg-[#0A2540] text-white py-[100px] overflow-hidden" style="padding-top: 100px; padding-bottom: 100px;">
             <!-- Background Pattern Overlay -->
             <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
                 <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
                     <defs>
-                        <pattern id="eligibility-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
+                        <pattern id="credential-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
                             <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
                             <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
                         </pattern>
                     </defs>
-                    <rect width="100%" height="100%" fill="url(#eligibility-strip-pattern)" />
+                    <rect width="100%" height="100%" fill="url(#credential-strip-pattern)" />
                 </svg>
             </div>
             <!-- Subtle Ambient Glow -->
@@ -1837,68 +1939,56 @@ a, button, input, select, svg, i {
             <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
-                
-                <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
-                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                        Candidate Qualification
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight">
-                        CAIE™ Dual-Pathway <span class="text-blue-300 heading-glow-text">Eligibility Criteria</span>
-                    </h2>
-                    <p class="text-blue-100/90 text-sm sm:text-base leading-relaxed">
-                        USAII® provides two streamlined pathways to ensure aspiring AI engineers and technical professionals can enroll seamlessly.
-                    </p>
-                </div>
-
-                <!-- Dual Pathway Split Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center max-w-6xl mx-auto">
                     
-                    <!-- Pathway 1 -->
-                    <div id="pathway-card-1" class="group bg-white border-2 border-stone-200/80 hover:border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
-                        <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 group-hover:bg-blue-100 group-hover:text-blue-900 text-xs font-bold uppercase tracking-wider font-heading transition-colors duration-300">
-                                Pathway 01
-                            </span>
-                        </div>
-                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900">
-                            Associate Degree / Diploma Stream
-                        </h3>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
-                            <li class="flex items-start gap-2.5">
-                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
-                                <span>Associate Degree or Diploma in STEM / Computing or equivalent</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
-                                <span>At least 2 years of programming experience (Python / Java / C++ etc.)</span>
-                            </li>
-                        </ul>
+                    <!-- Left: Certificate (Ambient glow only, no border, no hover) -->
+                    <div class="lg:col-span-5 flex justify-center lg:justify-start relative">
+                        <!-- Ambient Glow Aura behind Certificate -->
+                        <div class="absolute inset-2 sm:inset-3 bg-gradient-to-tr from-blue-600/35 via-cyan-400/25 to-indigo-500/30 rounded-3xl blur-2xl pointer-events-none"></div>
+
+                        <!-- Certificate Image (Clean, No Border, No Hover, Sized Proportionally) -->
+                        <img src="Images/sample-certificate.png" 
+                             alt="Certified Artificial Intelligence Engineer (CAIE™) Official Certificate & Digital Badge" 
+                             width="415" height="295" decoding="async"
+                             class="relative z-10 w-full max-w-[380px] sm:max-w-[415px] h-auto rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.5),0_0_35px_rgba(59,130,246,0.35)] select-none" 
+                             loading="lazy" />
                     </div>
 
-                    <!-- Pathway 2 -->
-                    <div id="pathway-card-2" class="group bg-white border-2 border-stone-200/80 hover:border-blue-600 rounded-2xl sm:rounded-3xl p-6 sm:p-7 text-left space-y-4 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5 relative overflow-hidden">
-                        <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-700 group-hover:bg-blue-100 group-hover:text-blue-900 text-xs font-bold uppercase tracking-wider font-heading transition-colors duration-300">
-                                Pathway 02
-                            </span>
+                    <!-- Right: Content & CTAs (On right side) -->
+                    <div class="lg:col-span-7 space-y-5 text-left">
+                        <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading">
+                            YOUR CREDENTIAL
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900">
-                            Bachelor's / Advanced Degree Stream
-                        </h3>
-                        <ul class="space-y-2.5 text-xs sm:text-sm text-slate-600">
-                            <li class="flex items-start gap-2.5">
-                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
-                                <span>Currently pursuing or completed Bachelor's, Master's, or Ph.D. Degree</span>
-                            </li>
-                            <li class="flex items-start gap-2.5">
-                                <i class="fa-solid fa-circle-check text-blue-600 text-base mt-0.5 shrink-0"></i>
-                                <span class="text-blue-950 font-bold">No prior work experience required!</span>
-                            </li>
-                        </ul>
+
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-white tracking-tight leading-snug">
+                            Global Recognition, Backed by a <span class="text-blue-300 heading-glow-text">Lifelong Digital Badge</span>
+                        </h2>
+
+                        <p class="text-blue-100/85 text-sm sm:text-base leading-relaxed">
+                            On completion, you receive the CAIE™ certificate signed by the Chief of the USAII® Board of Advisors, valid for three years, along with a world-class digital badge you can showcase on LinkedIn, email, and social channels for life.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <div class="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4">
+                            <!-- Download Brochure Button (Hero Blue Style) -->
+                            <button type="button" 
+                                    onclick="openLeadModal('syllabus')" 
+                                    class="inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-extrabold font-heading text-xs sm:text-sm text-blue-950 bg-blue-400 hover:bg-blue-300 shadow-[0_10px_25px_-4px_rgba(0,102,204,0.45)] transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                                <i class="fa-solid fa-download text-xs text-blue-950"></i>
+                                <span>Download Brochure</span>
+                            </button>
+
+                            <!-- Talk to an Advisor Button -->
+                            <button type="button" 
+                                    onclick="openLeadModal('enroll')" 
+                                    class="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-bold font-heading text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm transition-all shadow-sm hover:-translate-y-0.5 cursor-pointer">
+                                <i class="fa-solid fa-phone text-xs sm:text-sm text-white"></i>
+                                <span>Talk to an Advisor</span>
+                            </button>
+                        </div>
                     </div>
 
                 </div>
-
             </div>
         </div>
     </section>
@@ -1963,14 +2053,14 @@ a, button, input, select, svg, i {
                     <div class="border-b border-slate-200 py-4.5 sm:py-5">
                         <button type="button" onclick="toggleFaq(3)" class="w-full flex items-center justify-between gap-4 text-left group">
                             <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                Does CAIE™ cover Generative AI and LLMs?
+                                Does CAIE™ cover prompt engineering, generative AI, LLMs, and RAG?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
                                 <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-3"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-3">
-                            Yes. Generative AI and LLMs form a core component of the curriculum, including Transformer models, Large Language Models, prompt engineering architectures, and fine-tuning techniques.
+                            Yes. CAIE™ covers prompt engineering techniques and best practices, generative AI and large language models, and RAG, from building a complete pipeline to integrating it with AI agents and LangGraph.
                         </div>
                     </div>
 
@@ -1978,14 +2068,14 @@ a, button, input, select, svg, i {
                     <div class="border-b border-slate-200 py-4.5 sm:py-5">
                         <button type="button" onclick="toggleFaq(4)" class="w-full flex items-center justify-between gap-4 text-left group">
                             <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                Does CAIE™ teach prompt engineering?
+                                How long does CAIE™ take to complete?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
                                 <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-4"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-4">
-                            Yes. The curriculum specifically teaches Prompt Engineering: Techniques, Frameworks, Few-shot Prompting, Chain-of-Thought, and integration with AI applications.
+                            CAIE™ is self-paced and designed to be completed in 4–25 weeks with approximately 8–10 hours of learning per week. You have up to 25 weeks of portal access to take your exam.
                         </div>
                     </div>
 
@@ -1993,14 +2083,14 @@ a, button, input, select, svg, i {
                     <div class="border-b border-slate-200 py-4.5 sm:py-5">
                         <button type="button" onclick="toggleFaq(5)" class="w-full flex items-center justify-between gap-4 text-left group">
                             <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                Does CAIE™ include Retrieval-Augmented Generation (RAG)?
+                                What happens if I fail the exam on the first attempt?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
                                 <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-5"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-5">
-                            Yes. CAIE™ includes a dedicated RAG module covering vector databases, dense retrieval, re-ranking, and integration with modern AI agent frameworks.
+                            With our current special offer, your enrollment includes <strong>1 Free Exam</strong> attempt, giving you full peace of mind to prepare and pass.
                         </div>
                     </div>
 
@@ -2008,14 +2098,14 @@ a, button, input, select, svg, i {
                     <div class="border-b border-slate-200 py-4.5 sm:py-5">
                         <button type="button" onclick="toggleFaq(6)" class="w-full flex items-center justify-between gap-4 text-left group">
                             <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                How long does CAIE™ take to complete?
+                                What credential will I receive upon completion?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
                                 <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-6"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-6">
-                            CAIE™ is self-paced and designed to be completed in 4–25 weeks with approximately 8–10 hours of learning per week. You have up to 25 weeks of portal access to take your exam.
+                            Candidates who complete the requirements earn the official <strong>CAIE™ Certificate</strong> and a <strong>verifiable lifetime digital badge</strong> issued by USAII®, easily shareable on LinkedIn and resume portfolios.
                         </div>
                     </div>
 
@@ -2023,43 +2113,13 @@ a, button, input, select, svg, i {
                     <div class="border-b border-slate-200 py-4.5 sm:py-5">
                         <button type="button" onclick="toggleFaq(7)" class="w-full flex items-center justify-between gap-4 text-left group">
                             <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                What happens if I fail the exam on the first attempt?
+                                What is the refund policy?
                             </span>
                             <span class="text-sm font-bold text-blue-700 shrink-0">
                                 <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-7"></i>
                             </span>
                         </button>
                         <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-7">
-                            With our current special offer, your enrollment includes <strong>1 Free Exam</strong> attempt, giving you full peace of mind to prepare and pass.
-                        </div>
-                    </div>
-
-                    <!-- FAQ 8 -->
-                    <div class="border-b border-slate-200 py-4.5 sm:py-5">
-                        <button type="button" onclick="toggleFaq(8)" class="w-full flex items-center justify-between gap-4 text-left group">
-                            <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                What credential will I receive upon completion?
-                            </span>
-                            <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-8"></i>
-                            </span>
-                        </button>
-                        <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-8">
-                            Candidates who complete the requirements earn the official <strong>CAIE™ Certificate</strong> and a <strong>verifiable lifetime digital badge</strong> issued by USAII®, easily shareable on LinkedIn and resume portfolios.
-                        </div>
-                    </div>
-
-                    <!-- FAQ 9 -->
-                    <div class="border-b border-slate-200 py-4.5 sm:py-5">
-                        <button type="button" onclick="toggleFaq(9)" class="w-full flex items-center justify-between gap-4 text-left group">
-                            <span class="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-700 transition-colors">
-                                What is the refund policy?
-                            </span>
-                            <span class="text-sm font-bold text-blue-700 shrink-0">
-                                <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300 inline-block" id="faq-icon-9"></i>
-                            </span>
-                        </button>
-                        <div class="hidden pt-3 pb-1 text-xs sm:text-sm text-slate-600 leading-relaxed" id="faq-ans-9">
                             Candidates who withdraw from the program/certification within 24 hours of payment get a full refund deducting US $147 of the processing charges. For withdrawal requests beyond 24 hours, the fee paid will not be refunded.
                         </div>
                     </div>
@@ -2071,7 +2131,7 @@ a, button, input, select, svg, i {
     </section>
 
     <!-- FINAL HIGH-IMPACT INSTITUTIONAL CTA SECTION -->
-    <section class="relative overflow-hidden py-12 sm:py-16 bg-[#0A2540] text-white text-center">
+    <section class="relative overflow-hidden pt-[100px] pb-12 sm:pb-16 bg-[#0A2540] text-white text-center" style="padding-top: 100px;">
         <!-- Background Tech Pattern Overlay -->
         <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
@@ -2162,10 +2222,10 @@ a, button, input, select, svg, i {
                         <!-- Header Info -->
                         <div class="mb-4 relative z-10">
                             <h3 id="modalTitle" class="text-xl sm:text-2xl font-black font-heading text-slate-900 tracking-tight leading-snug">
-                                Enroll in USAII® CAIE™ Program
+                                Start Your AI Engineering Career with CAIE™
                             </h3>
                             <p id="modalDesc" class="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
-                                Lock in your candidate registration for the Certified Artificial Intelligence Engineer credential & gain instant access.
+                                Secure your registration for the Certified Artificial Intelligence Engineer credential and get instant access.
                             </p>
                         </div>
 
@@ -2237,7 +2297,7 @@ a, button, input, select, svg, i {
                 <!-- Right Column: Image Card (Official Certificate Showcase) -->
                 <div class="md:col-span-5 hidden md:flex relative rounded-2xl overflow-hidden bg-stone-100 border border-stone-200/80 shadow-sm min-h-[380px] lg:min-h-[460px]">
                     <!-- Image -->
-                    <img id="modalSideImg" src="Images/website_320x350 2.png" alt="USAII® CAIE™ Official Certificate and Credential" class="absolute inset-0 w-full h-full object-cover object-center" />
+                    <img id="modalSideImg" src="Images/website_320x350 2.png" alt="USAII® CAIE™ Official Certificate and Credential" width="320" height="460" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover object-center" />
                 </div>
 
             </div>
@@ -2261,6 +2321,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Initialize Floating Header Shadow on Scroll
     initFloatingHeaderShadow();
 
+    // 2b. Optimize Hero Video Playback (Pause when out of viewport to save GPU & CPU)
+    initHeroVideoObserver();
+
     // 3. Initialize Salary & ROI Calculator
     updateSalaryCalculator();
 
@@ -2276,8 +2339,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7b. Initialize Mobile Curriculum Controls
     updateMobileCurriculumControls(1);
 
-    // 8. Initialize Interactive Moving Indicator for Why CAIE Pillars
-    initWhyPillarsHover();
+    // 8. Initialize Resource Center Auto-Scroll Loop
+    initResourceScrollLoop();
+
 
     // 9. Wire all application buttons to modal
     document.querySelectorAll('a[href="#register-form"]').forEach(el => {
@@ -2313,23 +2377,44 @@ function captureUtmParameters() {
     }
 }
 
-// Floating Header Shadow Scroll Listener
+// Floating Header Shadow Scroll Listener (State-guarded to prevent layout thrashing)
 function initFloatingHeaderShadow() {
     const floatHeader = document.getElementById('mainFloatingHeader');
     if (!floatHeader) return;
 
+    let isScrolled = false;
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY || window.pageYOffset;
-
-        // Enhance sticky floating header shadow on scroll (keeping background solid)
-        if (scrollY > 25) {
-            floatHeader.classList.add('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
-            floatHeader.classList.remove('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
-        } else {
-            floatHeader.classList.remove('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
-            floatHeader.classList.add('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
+        const shouldBeScrolled = scrollY > 25;
+        if (shouldBeScrolled !== isScrolled) {
+            isScrolled = shouldBeScrolled;
+            if (isScrolled) {
+                floatHeader.classList.add('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
+                floatHeader.classList.remove('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
+            } else {
+                floatHeader.classList.remove('shadow-[0_12px_36px_rgba(10,37,64,0.14)]');
+                floatHeader.classList.add('shadow-[0_8px_30px_rgba(10,37,64,0.08)]');
+            }
         }
     }, { passive: true });
+}
+
+// Power & GPU Optimization: Pause hero background video when scrolled out of view
+function initHeroVideoObserver() {
+    const heroVideo = document.querySelector('#overview video');
+    if (!heroVideo || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                heroVideo.play().catch(() => {});
+            } else {
+                heroVideo.pause();
+            }
+        });
+    }, { threshold: 0.05 });
+
+    observer.observe(heroVideo);
 }
 
 // Header Navigation Smooth Scroll with Offset
@@ -2578,11 +2663,15 @@ function alignCurriculumDetails(modIndex) {
     });
 }
 
+let resizeCurriculumTimer = null;
 window.addEventListener('resize', () => {
-    if (typeof currentCurriculumModuleIndex !== 'undefined') {
-        alignCurriculumDetails(currentCurriculumModuleIndex);
-    }
-});
+    clearTimeout(resizeCurriculumTimer);
+    resizeCurriculumTimer = setTimeout(() => {
+        if (typeof currentCurriculumModuleIndex !== 'undefined') {
+            alignCurriculumDetails(currentCurriculumModuleIndex);
+        }
+    }, 120);
+}, { passive: true });
 
 // Backward Compatibility Helpers (if needed)
 function switchCurriculumTrack(trackNumber) { switchCurriculumModule(trackNumber); }
@@ -2620,8 +2709,8 @@ const modalConfigs = {
     enroll: {
         badge: 'Fast-Track Enrollment • 4–25 Wks',
         icon: 'fa-solid fa-graduation-cap',
-        title: 'Enroll in USAII® CAIE™ Program',
-        desc: 'Lock in your candidate registration for the Certified Artificial Intelligence Engineer credential & gain instant access.',
+        title: 'Start Your AI Engineering Career with CAIE™',
+        desc: 'Secure your registration for the Certified Artificial Intelligence Engineer credential and get instant access.',
         imgBadge: 'Admissions Open',
         imgDesc: 'Join AI engineers and technical leaders certified across 160+ countries.',
         btnText: 'PROCEED WITH ENROLLMENT',
@@ -2799,9 +2888,10 @@ function initSleekScrollAnimations() {
     const selectors = [
         'section > div > .text-center',
         '#about .grid > div',
-        '#why-caie .grid > div',
         '#curriculum .divide-y > div',
         '#eligibility .grid > div',
+        '#resources .grid > div',
+        '#credential .grid > div',
         '#faqs .grid > div'
     ];
 
@@ -2834,140 +2924,97 @@ function initSleekScrollAnimations() {
     targets.forEach(el => observer.observe(el));
 }
 
-// 8. Interactive Moving Blue Line Indicator & Contextual Mockup for Why CAIE Pillars
-function initWhyPillarsHover() {
-    const container = document.getElementById('why-caie-pillars-container');
-    const indicator = document.getElementById('pillar-active-indicator');
-    const section = document.getElementById('why-caie');
-    if (!container || !indicator) return;
+// 8. Resource Center Clean Text-Only Smooth Infinite Roller (Center Active)
+function initResourceScrollLoop() {
+    const container = document.getElementById('resource-roller-box');
+    const track = document.getElementById('resource-roller-track');
+    const section = document.getElementById('resources');
+    if (!container || !track) return;
 
-    const items = container.querySelectorAll('.why-pillar-item');
+    const items = track.querySelectorAll('.resource-roller-item');
     if (!items.length) return;
 
-    // Contextual data for each pillar topic
-    const pillarData = [
-        {
-            search: "Machine Learning & Python...",
-            category: "Module 01 • Fundamentals",
-            track: "Core AI",
-            title: "Supervised & Unsupervised ML",
-            sub: "Regression, Ensembles & Metrics",
-            icon: "fa-solid fa-chart-line",
-            lab: "Scikit-Learn & Math Foundations",
-            labIcon: "fa-solid fa-code"
-        },
-        {
-            search: "Prompt Engineering & LLMs...",
-            category: "Module 02 • Generative AI",
-            track: "GenAI & LLMs",
-            title: "Transformers & Prompt Tuning",
-            sub: "Attention, LoRA & Fine-Tuning",
-            icon: "fa-solid fa-brain",
-            lab: "LLM API & Prompt Engine Lab",
-            labIcon: "fa-solid fa-wand-magic-sparkles"
-        },
-        {
-            search: "Vector DBs & Semantic Search...",
-            category: "Module 03 • RAG Architecture",
-            track: "Enterprise RAG",
-            title: "Vector Search & Retrieval (RAG)",
-            sub: "Pinecone, Chroma & Hybrid Index",
-            icon: "fa-solid fa-database",
-            lab: "Document Retrieval & Vector QA",
-            labIcon: "fa-solid fa-network-wired"
-        },
-        {
-            search: "Neural Networks & Vision...",
-            category: "Module 04 • Deep Learning",
-            track: "Vision & NLP",
-            title: "PyTorch CNNs, RNNs & Vision",
-            sub: "Object Detection & NLP Models",
-            icon: "fa-solid fa-eye",
-            lab: "PyTorch & Computer Vision Lab",
-            labIcon: "fa-solid fa-microchip"
-        },
-        {
-            search: "Production AI & MLOps...",
-            category: "Module 05 • Production Deployment",
-            track: "USAII® Certified",
-            title: "MLOps Pipelines & Governance",
-            sub: "CI/CD, Model Drift & Docker",
-            icon: "fa-solid fa-rocket",
-            lab: "Kubeflow & Production Deploy Lab",
-            labIcon: "fa-solid fa-server"
-        }
-    ];
-
-    const phoneCard = document.getElementById('mockupPhoneCard');
-    const searchInput = document.getElementById('mockupSearchInput');
-    const category = document.getElementById('mockupCategory');
-    const track = document.getElementById('mockupTrack');
-    const title = document.getElementById('mockupTitle');
-    const sub = document.getElementById('mockupSub');
-    const icon = document.getElementById('mockupIcon');
-    const labTitle = document.getElementById('mockupLabTitle');
-    const labIcon = document.getElementById('mockupLabIcon');
-
-    let currentContextIndex = -1;
-    let currentIndex = 0;
+    const distinctCount = 6;
+    // Set 1: [0..5], Set 2: [6..11], Set 3: [12..17]
+    let currentIndex = distinctCount; // start at Set 2, Item 0 (index 6)
     let autoInterval = null;
     let isUserHovering = false;
     let isSectionVisible = true;
+    let isTransitioning = false;
 
-    function updateContext(index) {
-        if (index === currentContextIndex) return;
-        currentContextIndex = index;
-        const data = pillarData[index];
-        if (!data) return;
+    function updateVisualClasses(idx) {
+        items.forEach((item, i) => {
+            if (i === idx) {
+                item.classList.add('is-active');
+                item.classList.remove('is-adjacent');
+            } else if (i === idx - 1 || i === idx + 1) {
+                item.classList.add('is-adjacent');
+                item.classList.remove('is-active');
+            } else {
+                item.classList.remove('is-active', 'is-adjacent');
+            }
+        });
+    }
 
-        if (phoneCard) {
-            phoneCard.classList.add('opacity-80', 'scale-[0.98]');
-            setTimeout(() => {
-                if (searchInput) searchInput.textContent = data.search;
-                if (category) category.textContent = data.category;
-                if (track) track.textContent = data.track;
-                if (title) title.textContent = data.title;
-                if (sub) sub.textContent = data.sub;
-                if (icon) icon.innerHTML = `<i class="${data.icon}"></i>`;
-                if (labTitle) labTitle.textContent = data.lab;
-                if (labIcon) labIcon.className = `${data.labIcon} text-[10px] text-blue-600 flex-shrink-0`;
+    function positionCenter(idx, animate = true) {
+        if (idx < 0 || idx >= items.length) return;
+        const targetItem = items[idx];
+        if (!targetItem) return;
 
-                phoneCard.classList.remove('opacity-80', 'scale-[0.98]');
-            }, 100);
+        updateVisualClasses(idx);
+
+        if (!animate) {
+            track.classList.add('no-transition');
+        } else {
+            track.classList.remove('no-transition');
+            isTransitioning = true;
+        }
+
+        // Calculate offset to place center of targetItem exactly at the center of container
+        const containerH = container.clientHeight || 420;
+        const itemCenter = targetItem.offsetTop + (targetItem.offsetHeight / 2);
+        const targetY = (containerH / 2) - itemCenter;
+
+        track.style.transform = `translateY(${Math.round(targetY)}px)`;
+
+        if (!animate) {
+            // Force browser layout reflow so no-transition applies immediately
+            track.offsetHeight;
+            track.classList.remove('no-transition');
+            isTransitioning = false;
         }
     }
 
-    function moveTo(element, index) {
-        if (!element) return;
+    function moveTo(index) {
         currentIndex = index;
-
-        // 1. Update active classes first so font size expands/shrinks
-        items.forEach((item, idx) => {
-            if (idx === index) {
-                item.classList.add('is-active');
-            } else {
-                item.classList.remove('is-active');
-            }
-        });
-
-        // 2. Reposition indicator to match newly styled active element dimensions
-        requestAnimationFrame(() => {
-            indicator.style.top = `${element.offsetTop}px`;
-            indicator.style.height = `${element.offsetHeight}px`;
-            indicator.style.opacity = '1';
-        });
-
-        updateContext(index);
+        positionCenter(currentIndex, true);
     }
 
-    // Auto-loop functions
+    // Seamless Infinite Loop Reset on Transition End
+    track.addEventListener('transitionend', (e) => {
+        if (e.target !== track || e.propertyName !== 'transform') return;
+        isTransitioning = false;
+
+        // If we transitioned to Set 3 (index >= 12), seamlessly jump back to Set 2
+        if (currentIndex >= distinctCount * 2) {
+            currentIndex = currentIndex - distinctCount;
+            positionCenter(currentIndex, false);
+        } else if (currentIndex < distinctCount) {
+            // If moved before Set 2, jump to Set 2 equivalent
+            currentIndex = currentIndex + distinctCount;
+            positionCenter(currentIndex, false);
+        }
+    });
+
+    function nextItem() {
+        if (isTransitioning) return;
+        moveTo(currentIndex + 1);
+    }
+
     function startAutoLoop() {
         stopAutoLoop();
         if (isUserHovering || !isSectionVisible) return;
-        autoInterval = setInterval(() => {
-            const nextIndex = (currentIndex + 1) % items.length;
-            moveTo(items[nextIndex], nextIndex);
-        }, 3000);
+        autoInterval = setInterval(nextItem, 3400);
     }
 
     function stopAutoLoop() {
@@ -2977,22 +3024,16 @@ function initWhyPillarsHover() {
         }
     }
 
-    // Set initial position
-    moveTo(items[0], 0);
-    requestAnimationFrame(() => moveTo(items[0], 0));
-    setTimeout(() => moveTo(items[0], 0), 150);
-
-    // Hover & Click interaction on items
+    // Direct click on adjacent items centers them immediately
     items.forEach((item, index) => {
-        item.addEventListener('mouseenter', () => {
-            moveTo(item, index);
-        });
         item.addEventListener('click', () => {
-            moveTo(item, index);
+            if (index !== currentIndex) {
+                moveTo(index);
+            }
         });
     });
 
-    // Pause on container hover, resume on mouse leave
+    // Pause on hover
     container.addEventListener('mouseenter', () => {
         isUserHovering = true;
         stopAutoLoop();
@@ -3003,7 +3044,14 @@ function initWhyPillarsHover() {
         startAutoLoop();
     });
 
-    // Viewport visibility check to conserve resources and only loop when visible
+    // Initial setup (render without animation)
+    positionCenter(currentIndex, false);
+    // Secondary alignment pass once fonts/DOM layout are fully settled
+    setTimeout(() => {
+        positionCenter(currentIndex, false);
+    }, 150);
+
+    // Viewport Intersection Observer
     if (section && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -3014,15 +3062,19 @@ function initWhyPillarsHover() {
                     stopAutoLoop();
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.15 });
         observer.observe(section);
     } else {
         startAutoLoop();
     }
 
-    // Re-align indicator on window resize
+    // Window resize adjustment
+    let resizeTimer = null;
     window.addEventListener('resize', () => {
-        moveTo(items[currentIndex], currentIndex);
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            positionCenter(currentIndex, false);
+        }, 100);
     });
 }
 
