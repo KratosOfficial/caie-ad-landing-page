@@ -574,38 +574,43 @@ a, button, input, select {
 }
 
 /* ==========================================================================
-   11. CAIE LOGO PRESTIGE FLOATING & AMBIENT AURA ANIMATIONS
+   11. CAIE LOGO PRESTIGE FLOATING & AMBIENT AURA ANIMATIONS (GPU-ACCELERATED)
    ========================================================================== */
 @keyframes caieBadgeFloat {
     0%, 100% {
-        transform: translateY(0px) rotate(0deg);
-        filter: drop-shadow(0 16px 32px rgba(0, 102, 204, 0.35)) drop-shadow(0 4px 12px rgba(10, 37, 64, 0.4));
+        transform: translate3d(0, 0px, 0);
     }
     50% {
-        transform: translateY(-12px) rotate(0.4deg);
-        filter: drop-shadow(0 28px 48px rgba(0, 102, 204, 0.55)) drop-shadow(0 8px 20px rgba(10, 37, 64, 0.45));
+        transform: translate3d(0, -10px, 0);
     }
 }
 
 @keyframes caieAuraPulse {
     0%, 100% {
         opacity: 0.35;
-        transform: scale(0.92);
+        transform: scale(0.96) translateZ(0);
     }
     50% {
-        opacity: 0.65;
-        transform: scale(1.08);
+        opacity: 0.55;
+        transform: scale(1.04) translateZ(0);
     }
 }
 
 .caie-badge-animate {
-    animation: caieBadgeFloat 5.5s ease-in-out infinite;
-    will-change: transform, filter;
+    animation: caieBadgeFloat 6s ease-in-out infinite;
+    filter: drop-shadow(0 20px 32px rgba(0, 102, 204, 0.4)) drop-shadow(0 6px 14px rgba(10, 37, 64, 0.45));
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .caie-aura-animate {
-    animation: caieAuraPulse 5.5s ease-in-out infinite;
+    animation: caieAuraPulse 6s ease-in-out infinite;
     will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -655,8 +660,8 @@ a, button, input, select {
     <div class="relative overflow-hidden pt-28 sm:pt-36 lg:pt-40 pb-60 sm:pb-48 lg:pb-36 min-h-[680px] lg:min-h-[760px] flex flex-col justify-center bg-slate-950" id="overview">
         
         <!-- Full Background Video covering entire hero & extending under header -->
-        <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950">
-            <video autoplay loop muted playsinline preload="metadata" class="w-full h-full object-cover object-center">
+        <div class="absolute inset-0 z-0 overflow-hidden bg-slate-950 pointer-events-none" style="transform: translate3d(0,0,0); contain: paint;">
+            <video autoplay loop muted playsinline preload="metadata" class="w-full h-full object-cover object-center pointer-events-none">
                 <source src="Images/stock video.mp4" type="video/mp4">
             </video>
             <!-- Linear Gradient on Left Side so the text is crisp, high-contrast & visible, leaving the video fully radiant -->
@@ -720,7 +725,7 @@ a, button, input, select {
 
     <!-- SPECIFICATIONS RECTANGLE (OVERLAPPING: HALF ON VIDEO, HALF BELOW ON LIGHT SECTION) -->
     <div class="relative z-30 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 -mt-48 sm:-mt-36 lg:-mt-24">
-        <div class="relative bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),0_0_40px_rgba(0,102,204,0.12)] border border-white/90 text-slate-900 overflow-hidden">
+        <div class="relative bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 lg:p-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4),0_0_40px_rgba(0,102,204,0.12)] border border-slate-200/80 text-slate-900 overflow-hidden">
             
             <!-- Top Accent Gradient Line -->
             <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-blue-600 via-sky-400 to-blue-700"></div>
