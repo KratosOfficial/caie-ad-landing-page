@@ -572,9 +572,9 @@ a, button, input, select {
 
     <!-- FIXED FLOATING NAVBAR CARD (REMAINS FLOATING & STICKY DOWN THE SCREEN ON SCROLL) -->
     <div class="fixed top-3 sm:top-4 md:top-5 left-0 right-0 z-50 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
-        <header id="mainFloatingHeader" class="bg-[#FBF9F5] rounded-2xl sm:rounded-3xl shadow-[0_8px_30px_rgba(10,37,64,0.08)] border border-stone-200/80 px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 transition-all duration-300 pointer-events-auto">
+        <header id="mainFloatingHeader" class="bg-white rounded-2xl sm:rounded-3xl shadow-[0_8px_30px_rgba(10,37,64,0.08)] border border-slate-200/80 px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 transition-all duration-300 pointer-events-auto">
             
-            <div class="flex items-center justify-between">
+            <div class="relative flex items-center justify-between">
                 <!-- Left: USAII Official Logo -->
                 <div class="flex items-center gap-3">
                     <a href="#" class="flex items-center group py-1 shrink-0">
@@ -582,11 +582,11 @@ a, button, input, select {
                     </a>
                 </div>
 
-                <!-- Center: Navigation Menu Links (Mapped to Exact Sections) -->
-                <nav class="hidden lg:flex items-center space-x-5 xl:space-x-7 text-sm font-semibold text-slate-800">
+                <!-- Center: Navigation Menu Links (Centered & sequential with page structure) -->
+                <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-semibold text-slate-800 absolute left-1/2 -translate-x-1/2">
                     <a href="#about" class="hover:text-blue-700 transition-colors">Overview</a>
-                    <a href="#curriculum" class="hover:text-blue-700 transition-colors">Curriculum</a>
                     <a href="#eligibility" class="hover:text-blue-700 transition-colors">Eligibility</a>
+                    <a href="#curriculum" class="hover:text-blue-700 transition-colors">Curriculum</a>
                     <a href="#faqs" class="hover:text-blue-700 transition-colors">FAQs</a>
                 </nav>
 
@@ -630,7 +630,7 @@ a, button, input, select {
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] xl:text-[54px] font-black font-heading text-white tracking-tight leading-[1.08] mb-5">
                         Become a Certified <br>
                         <span class="text-blue-400 block hero-glow-text">Artificial Intelligence</span>
-                        <span class="text-blue-400 block hero-glow-text">Engineer</span>
+                        <span class="text-blue-400 block hero-glow-text">Engineer (CAIE)</span>
                     </h1>
 
                     <!-- Subtitle Description -->
@@ -683,16 +683,17 @@ a, button, input, select {
             <!-- Program Details Header Bar -->
             <div class="pb-5 border-b border-slate-200/90 flex flex-col md:flex-row md:items-center justify-between gap-3">
                 <div class="flex items-center gap-3 flex-wrap">
-                    <span class="text-[11px] font-black text-blue-700 uppercase tracking-widest font-heading bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">Program Details</span>
-                    <div class="text-xl sm:text-2xl font-black font-heading text-slate-950 tracking-tight">CAIE™ Specifications</div>
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-xs font-bold font-heading">
-                        <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
-                        <span>Self-Paced</span>
-                    </span>
+                    <h2 class="text-xl sm:text-2xl font-black font-heading text-slate-950 tracking-tight">CAIE™ Specifications</h2>
                 </div>
-                <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-600 font-semibold">
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-blue-600 text-sm"></i> Official USAII® Credential</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-globe text-blue-600 text-sm"></i> Recognized in 160+ Countries</span>
+                <div class="flex items-center">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-blue-50/80 border border-blue-200/80 shadow-xs">
+                        <span class="text-[11px] font-black uppercase tracking-wider text-blue-700 font-heading">Program Fee</span>
+                        <span class="h-3.5 w-px bg-blue-200"></span>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-xl sm:text-2xl font-black font-heading text-slate-950 tracking-tight leading-none">$749</span>
+                            <span class="text-xs font-extrabold uppercase text-blue-600 font-heading">USD</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -728,7 +729,7 @@ a, button, input, select {
                     </span>
                     <div>
                         <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-heading">Learning Mode</div>
-                        <div class="text-sm sm:text-[15px] font-extrabold text-slate-900 font-heading">100% Online E-Learning</div>
+                        <div class="text-sm sm:text-[15px] font-extrabold text-slate-900 font-heading">100% Online</div>
                     </div>
                 </div>
 
@@ -738,9 +739,9 @@ a, button, input, select {
                         <i class="fa-solid fa-award"></i>
                     </span>
                     <div>
-                        <div class="text-[11px] font-bold text-blue-700 uppercase tracking-wider font-heading">Exam Voucher</div>
+                        <div class="text-[11px] font-bold text-blue-700 uppercase tracking-wider font-heading">Exam Format</div>
                         <div class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-blue-600 text-white text-xs font-black font-heading mt-0.5 shadow-xs">
-                            Included + 1 Free Exam
+                            AI Proctored + 1 Free Exam
                         </div>
                     </div>
                 </div>
@@ -902,7 +903,7 @@ a, button, input, select {
                     </h2>
 
                     <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-xl">
-                        The Certified Artificial Intelligence Engineer (CAIE™) by USAII® is built to develop and validate job-ready capabilities in AI, Machine Learning, Generative AI, and RAG architectures for emerging engineering leaders.
+                        <b>The Certified Artificial Intelligence Engineer (CAIE™)</b> is built to develop and validate job-ready capabilities in AI, Machine Learning, Generative AI, and RAG architectures for emerging engineering leaders.
                     </p>
 
                     <!-- Pill CTA Buttons -->
@@ -954,7 +955,7 @@ a, button, input, select {
                         <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-infinity text-base"></i>
                         </div>
-                        <span class="text-slate-800 font-semibold text-sm sm:text-base">Lifetime credential access with flexible 4–25 weeks self-paced study</span>
+                        <span class="text-slate-800 font-semibold text-sm sm:text-base">Flexible Program duration with Self Paced Study</span>
                     </div>
 
                     <!-- Card 6: Readily Available Support & Resources -->
@@ -962,7 +963,7 @@ a, button, input, select {
                         <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-headset text-base"></i>
                         </div>
-                        <span class="text-slate-800 font-semibold text-sm sm:text-base">Readily available support with study books, videos & practice code</span>
+                        <span class="text-slate-800 font-semibold text-sm sm:text-base">Globally Accepted & Industry-Relevant Curriculum</span>
                     </div>
 
                     <!-- Specification Details Summary Bar -->
@@ -1715,13 +1716,7 @@ a, button, input, select {
                                     <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
                                 </div>
                             </li>
-                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
-                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
-                                <div>
-                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">Flexible Interest-Free Payment</h3>
-                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
-                                </div>
-                            </li>
+                            
                             <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
                                 <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
                                 <div>
@@ -1801,7 +1796,7 @@ a, button, input, select {
                 <div class="text-center space-y-1.5 lg:px-4">
                     <div class="w-12 h-12 rounded-full bg-blue-50 text-blue-700 flex items-center justify-center text-xl mb-2 mx-auto"><i class="fa-solid fa-laptop"></i></div>
                     <div class="text-base sm:text-lg lg:text-xl font-black font-heading text-slate-900">100% Online</div>
-                    <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Proctored Exam</div>
+                    <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">AI Proctored Exam</div>
                 </div>
 
                 <!-- 5 -->
@@ -1866,17 +1861,17 @@ a, button, input, select {
 
                         <!-- Action Buttons -->
                         <div class="pt-2 flex flex-wrap items-center gap-3.5 sm:gap-4">
-                            <!-- Download Brochure Button (Hero Blue Style) -->
-                            <button type="button" 
-                                    onclick="openLeadModal('syllabus')" 
-                                    class="inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-extrabold font-heading text-xs sm:text-sm text-blue-950 bg-blue-400 hover:bg-blue-300 shadow-[0_10px_25px_-4px_rgba(0,102,204,0.45)] transition-all transform hover:-translate-y-0.5 cursor-pointer">
-                                <i class="fa-solid fa-download text-xs text-blue-950"></i>
-                                <span>Download Brochure</span>
-                            </button>
+                            <!-- Enroll Now Button (Hero Blue Style) -->
+                            <a href="#register-form" 
+                               onclick="openBrochureModal('enroll'); return false;" 
+                               class="inline-flex items-center justify-center gap-2.5 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full font-extrabold font-heading text-xs sm:text-sm text-blue-950 bg-blue-400 hover:bg-blue-300 shadow-[0_10px_25px_-4px_rgba(0,102,204,0.45)] transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                                <span>Enroll Now</span>
+                                <i class="fa-solid fa-arrow-right text-xs text-blue-950"></i>
+                            </a>
 
                             <!-- Talk to an Advisor Button -->
                             <button type="button" 
-                                    onclick="openLeadModal('enroll')" 
+                                    onclick="openBrochureModal('enroll')" 
                                     class="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-bold font-heading text-xs sm:text-sm text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm transition-all shadow-sm hover:-translate-y-0.5 cursor-pointer">
                                 <i class="fa-solid fa-phone text-xs sm:text-sm text-white"></i>
                                 <span>Talk to an Advisor</span>
@@ -2057,10 +2052,6 @@ a, button, input, select {
                     <span>Register for CAIE™ Now</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
-                <button type="button" onclick="downloadBrochureDirect(event)" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 bg-transparent hover:bg-white/10 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full border border-white/40 hover:border-white transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-download text-blue-300 text-xs"></i>
-                    <span>Download Brochure</span>
-                </button>
             </div>
 
             <!-- Trust Line -->
