@@ -441,128 +441,74 @@ a, button, input, select {
 
 
 /* ==========================================================================
-   9. RESOURCE CENTER CLEAN TEXT ROLLER
+   8b. DISTINCT AI ARCHITECTURAL PATTERNS
+   - Dark Theme (Blue Containers): Large 1200x650 randomized schematic circuit traces,
+     asymmetric 45° angled branches, junction nodes, dashed orbital rings & guidelines (from user reference)
+   - Light Theme (White Containers): 80x80 Neural Network Synapse & Tensor Lattice
    ========================================================================== */
-.resource-roller-container {
-    height: 350px;
-    overflow: hidden;
+.ai-pattern-dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='650' viewBox='0 0 1200 650'%3E%3Cg fill='none'%3E%3Ccircle cx='235' cy='165' r='52' stroke='%2338bdf8' stroke-width='1.2' stroke-dasharray='4 5' stroke-opacity='0.75'/%3E%3Cpath d='M235 159 V171 M229 165 H241' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.85'/%3E%3Cline x1='150' y1='250' x2='380' y2='250' stroke='%2360a5fa' stroke-width='1' stroke-opacity='0.5'/%3E%3Cpath d='M0 110 H180 L290 220 H460' stroke='%2313cfff' stroke-width='1.5' stroke-opacity='0.9'/%3E%3Ccircle cx='0' cy='110' r='2.5' fill='%2313cfff'/%3E%3Ccircle cx='180' cy='110' r='8' fill='%2313cfff' fill-opacity='0.25'/%3E%3Ccircle cx='180' cy='110' r='3.5' fill='%2313cfff'/%3E%3Ccircle cx='290' cy='220' r='7' fill='%2338bdf8' fill-opacity='0.25'/%3E%3Ccircle cx='290' cy='220' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='460' cy='220' r='3' fill='%2313cfff'/%3E%3Ccircle cx='905' cy='115' r='46' stroke='%2338bdf8' stroke-width='1.2' stroke-dasharray='3 4' stroke-opacity='0.7'/%3E%3Cpath d='M905 110 V120 M900 115 H910' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.85'/%3E%3Cline x1='780' y1='185' x2='980' y2='185' stroke='%2360a5fa' stroke-width='1' stroke-opacity='0.45'/%3E%3Cpath d='M680 160 H860 L950 70 H1120 L1160 110 H1200' stroke='%2313cfff' stroke-width='1.5' stroke-opacity='0.85'/%3E%3Ccircle cx='680' cy='160' r='2.5' fill='%2338bdf8'/%3E%3Ccircle cx='860' cy='160' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='950' cy='70' r='8' fill='%2313cfff' fill-opacity='0.25'/%3E%3Ccircle cx='950' cy='70' r='3.5' fill='%2313cfff'/%3E%3Ccircle cx='1120' cy='70' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='1160' cy='110' r='2.5' fill='%2313cfff'/%3E%3Ccircle cx='1200' cy='110' r='2.5' fill='%2313cfff'/%3E%3Ccircle cx='320' cy='440' r='62' stroke='%2338bdf8' stroke-width='1.2' stroke-dasharray='5 6' stroke-opacity='0.65'/%3E%3Ccircle cx='320' cy='440' r='26' stroke='%2360a5fa' stroke-width='1' stroke-dasharray='3 3' stroke-opacity='0.5'/%3E%3Ccircle cx='320' cy='440' r='4' fill='%2313cfff' fill-opacity='0.9'/%3E%3Cpath d='M320 432 V448 M312 440 H328' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.8'/%3E%3Cpath d='M90 440 H258' stroke='%2338bdf8' stroke-width='1.2' stroke-opacity='0.75'/%3E%3Ccircle cx='90' cy='440' r='2.5' fill='%2338bdf8'/%3E%3Ccircle cx='258' cy='440' r='3' fill='%2313cfff'/%3E%3Cpath d='M382 440 L450 508 H560' stroke='%2338bdf8' stroke-width='1.2' stroke-opacity='0.75'/%3E%3Ccircle cx='382' cy='440' r='3' fill='%2313cfff'/%3E%3Ccircle cx='450' cy='508' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='560' cy='508' r='2.5' fill='%2313cfff'/%3E%3Cline x1='240' y1='530' x2='440' y2='530' stroke='%2360a5fa' stroke-width='1' stroke-opacity='0.4'/%3E%3Ccircle cx='825' cy='555' r='42' stroke='%2338bdf8' stroke-width='1' stroke-dasharray='3 4' stroke-opacity='0.6'/%3E%3Cpath d='M825 550 V560 M820 555 H830' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.8'/%3E%3Cpath d='M0 520 H80 L140 580 H220' stroke='%2338bdf8' stroke-width='1.2' stroke-opacity='0.6'/%3E%3Ccircle cx='0' cy='520' r='2.5' fill='%2338bdf8'/%3E%3Ccircle cx='80' cy='520' r='2.5' fill='%2338bdf8'/%3E%3Ccircle cx='140' cy='580' r='3' fill='%2313cfff'/%3E%3Ccircle cx='220' cy='580' r='2.5' fill='%2338bdf8'/%3E%3Cpath d='M650 520 H790 L860 590 H1040 L1110 520 H1200' stroke='%2313cfff' stroke-width='1.5' stroke-opacity='0.85'/%3E%3Ccircle cx='650' cy='520' r='2.5' fill='%2338bdf8'/%3E%3Ccircle cx='790' cy='520' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='860' cy='590' r='7' fill='%2338bdf8' fill-opacity='0.25'/%3E%3Ccircle cx='860' cy='590' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='1040' cy='590' r='3' fill='%2338bdf8'/%3E%3Ccircle cx='1110' cy='520' r='8' fill='%2313cfff' fill-opacity='0.25'/%3E%3Ccircle cx='1110' cy='520' r='3.5' fill='%2313cfff'/%3E%3Ccircle cx='1200' cy='520' r='2.5' fill='%2338bdf8'/%3E%3Cpath d='M580 174 V186 M574 180 H586' stroke='%2313cfff' stroke-width='1' stroke-opacity='0.75'/%3E%3Ccircle cx='580' cy='180' r='14' stroke='%2338bdf8' stroke-width='0.75' stroke-dasharray='2 3' stroke-opacity='0.4'/%3E%3Cpath d='M150 326 V338 M144 332 H156' stroke='%2338bdf8' stroke-width='1' stroke-opacity='0.6'/%3E%3Cpath d='M1050 334 V346 M1044 340 H1056' stroke='%2313cfff' stroke-width='1' stroke-opacity='0.75'/%3E%3Ccircle cx='1050' cy='340' r='16' stroke='%2338bdf8' stroke-width='0.75' stroke-dasharray='2 3' stroke-opacity='0.4'/%3E%3Cpath d='M540 484 V496 M534 490 H546' stroke='%2338bdf8' stroke-width='1' stroke-opacity='0.6'/%3E%3Ccircle cx='620' cy='110' r='2' fill='%2338bdf8' fill-opacity='0.6'/%3E%3Ccircle cx='490' cy='70' r='1.5' fill='%2313cfff' fill-opacity='0.7'/%3E%3Ccircle cx='980' cy='410' r='2' fill='%2338bdf8' fill-opacity='0.6'/%3E%3Ccircle cx='60' cy='610' r='2' fill='%2313cfff' fill-opacity='0.7'/%3E%3Ccircle cx='740' cy='340' r='1.5' fill='%2338bdf8' fill-opacity='0.6'/%3E%3Ccircle cx='1148' cy='79' r='1.2' fill='%23ffffff' fill-opacity='0.50'/%3E%3Ccircle cx='312' cy='468' r='1.2' fill='%23ffffff' fill-opacity='0.63'/%3E%3Ccircle cx='1141' cy='39' r='1.2' fill='%2338bdf8' fill-opacity='0.45'/%3E%3Ccircle cx='541' cy='214' r='0.8' fill='%2338bdf8' fill-opacity='0.49'/%3E%3Ccircle cx='60' cy='587' r='1.2' fill='%2338bdf8' fill-opacity='0.48'/%3E%3Ccircle cx='83' cy='141' r='1.7' fill='%2338bdf8' fill-opacity='0.60'/%3E%3Ccircle cx='758' cy='535' r='1.2' fill='%2313cfff' fill-opacity='0.60'/%3E%3Ccircle cx='450' cy='468' r='0.8' fill='%23ffffff' fill-opacity='0.60'/%3E%3Ccircle cx='1163' cy='57' r='0.8' fill='%2393c5fd' fill-opacity='0.33'/%3E%3Ccircle cx='962' cy='114' r='1.2' fill='%23ffffff' fill-opacity='0.32'/%3E%3Ccircle cx='236' cy='234' r='1.2' fill='%23ffffff' fill-opacity='0.30'/%3E%3Ccircle cx='530' cy='619' r='0.8' fill='%2313cfff' fill-opacity='0.42'/%3E%3Ccircle cx='1071' cy='253' r='0.8' fill='%2360a5fa' fill-opacity='0.40'/%3E%3Ccircle cx='1085' cy='559' r='1.2' fill='%23ffffff' fill-opacity='0.38'/%3E%3Ccircle cx='960' cy='520' r='0.8' fill='%2338bdf8' fill-opacity='0.48'/%3E%3Ccircle cx='1082' cy='341' r='1.2' fill='%2313cfff' fill-opacity='0.45'/%3E%3Ccircle cx='678' cy='223' r='1.7' fill='%2313cfff' fill-opacity='0.58'/%3E%3Ccircle cx='356' cy='80' r='0.8' fill='%23ffffff' fill-opacity='0.46'/%3E%3Ccircle cx='630' cy='534' r='0.8' fill='%2360a5fa' fill-opacity='0.52'/%3E%3Ccircle cx='507' cy='101' r='1.2' fill='%2338bdf8' fill-opacity='0.48'/%3E%3Ccircle cx='373' cy='204' r='1.2' fill='%2393c5fd' fill-opacity='0.49'/%3E%3Ccircle cx='615' cy='438' r='1.2' fill='%23ffffff' fill-opacity='0.67'/%3E%3Ccircle cx='459' cy='395' r='1.7' fill='%2338bdf8' fill-opacity='0.43'/%3E%3Ccircle cx='190' cy='164' r='1.2' fill='%2360a5fa' fill-opacity='0.43'/%3E%3Ccircle cx='562' cy='274' r='1.2' fill='%2360a5fa' fill-opacity='0.38'/%3E%3Ccircle cx='280' cy='175' r='0.8' fill='%23ffffff' fill-opacity='0.42'/%3E%3Ccircle cx='888' cy='71' r='0.8' fill='%2313cfff' fill-opacity='0.67'/%3E%3Ccircle cx='455' cy='164' r='0.8' fill='%2313cfff' fill-opacity='0.48'/%3E%3Ccircle cx='527' cy='48' r='0.8' fill='%2360a5fa' fill-opacity='0.37'/%3E%3Ccircle cx='331' cy='537' r='1.2' fill='%2360a5fa' fill-opacity='0.48'/%3E%3Ccircle cx='252' cy='613' r='1.2' fill='%2360a5fa' fill-opacity='0.54'/%3E%3Ccircle cx='678' cy='481' r='0.8' fill='%23ffffff' fill-opacity='0.69'/%3E%3Ccircle cx='836' cy='342' r='0.8' fill='%23ffffff' fill-opacity='0.66'/%3E%3Ccircle cx='1112' cy='402' r='1.2' fill='%23ffffff' fill-opacity='0.58'/%3E%3Ccircle cx='733' cy='252' r='0.8' fill='%2338bdf8' fill-opacity='0.58'/%3E%3Ccircle cx='85' cy='97' r='0.8' fill='%2338bdf8' fill-opacity='0.40'/%3E%3Ccircle cx='715' cy='140' r='0.8' fill='%2338bdf8' fill-opacity='0.57'/%3E%3Ccircle cx='690' cy='583' r='0.8' fill='%2360a5fa' fill-opacity='0.43'/%3E%3Ccircle cx='397' cy='411' r='1.2' fill='%2360a5fa' fill-opacity='0.51'/%3E%3Ccircle cx='222' cy='436' r='1.7' fill='%2393c5fd' fill-opacity='0.50'/%3E%3Ccircle cx='714' cy='299' r='1.2' fill='%23ffffff' fill-opacity='0.61'/%3E%3Ccircle cx='1046' cy='331' r='0.8' fill='%2393c5fd' fill-opacity='0.58'/%3E%3Ccircle cx='851' cy='426' r='0.8' fill='%2313cfff' fill-opacity='0.55'/%3E%3Ccircle cx='516' cy='175' r='1.2' fill='%2393c5fd' fill-opacity='0.65'/%3E%3Ccircle cx='429' cy='394' r='1.2' fill='%2393c5fd' fill-opacity='0.62'/%3E%3Ccircle cx='975' cy='65' r='0.8' fill='%2338bdf8' fill-opacity='0.57'/%3E%3Ccircle cx='221' cy='611' r='1.2' fill='%2338bdf8' fill-opacity='0.66'/%3E%3Ccircle cx='875' cy='406' r='0.8' fill='%2360a5fa' fill-opacity='0.62'/%3E%3Ccircle cx='1002' cy='263' r='1.2' fill='%2393c5fd' fill-opacity='0.56'/%3E%3Ccircle cx='990' cy='385' r='0.8' fill='%2393c5fd' fill-opacity='0.64'/%3E%3Ccircle cx='65' cy='366' r='1.7' fill='%2393c5fd' fill-opacity='0.45'/%3E%3Ccircle cx='840' cy='500' r='1.2' fill='%2360a5fa' fill-opacity='0.60'/%3E%3Ccircle cx='657' cy='273' r='0.8' fill='%23ffffff' fill-opacity='0.39'/%3E%3Ccircle cx='851' cy='177' r='1.2' fill='%2313cfff' fill-opacity='0.35'/%3E%3Ccircle cx='647' cy='413' r='1.2' fill='%2360a5fa' fill-opacity='0.63'/%3E%3Ccircle cx='433' cy='576' r='0.8' fill='%2360a5fa' fill-opacity='0.54'/%3E%3Ccircle cx='594' cy='259' r='1.2' fill='%2338bdf8' fill-opacity='0.62'/%3E%3Ccircle cx='358' cy='275' r='1.7' fill='%23ffffff' fill-opacity='0.42'/%3E%3Ccircle cx='939' cy='68' r='1.2' fill='%2338bdf8' fill-opacity='0.66'/%3E%3Ccircle cx='1038' cy='136' r='1.2' fill='%23ffffff' fill-opacity='0.45'/%3E%3Ccircle cx='481' cy='605' r='1.2' fill='%2393c5fd' fill-opacity='0.32'/%3E%3Ccircle cx='816' cy='458' r='0.8' fill='%2338bdf8' fill-opacity='0.42'/%3E%3Ccircle cx='109' cy='509' r='1.2' fill='%2393c5fd' fill-opacity='0.46'/%3E%3Ccircle cx='1067' cy='351' r='1.2' fill='%2360a5fa' fill-opacity='0.60'/%3E%3Ccircle cx='597' cy='187' r='1.7' fill='%2360a5fa' fill-opacity='0.32'/%3E%3Ccircle cx='731' cy='138' r='0.8' fill='%23ffffff' fill-opacity='0.51'/%3E%3Ccircle cx='444' cy='218' r='0.8' fill='%2360a5fa' fill-opacity='0.43'/%3E%3Ccircle cx='405' cy='157' r='0.8' fill='%2393c5fd' fill-opacity='0.60'/%3E%3Ccircle cx='1000' cy='158' r='0.8' fill='%2360a5fa' fill-opacity='0.38'/%3E%3Ccircle cx='295' cy='425' r='1.2' fill='%2338bdf8' fill-opacity='0.69'/%3E%3Ccircle cx='996' cy='550' r='0.8' fill='%2393c5fd' fill-opacity='0.45'/%3E%3Ccircle cx='1172' cy='127' r='1.2' fill='%2393c5fd' fill-opacity='0.62'/%3E%3Ccircle cx='48' cy='580' r='0.8' fill='%23ffffff' fill-opacity='0.51'/%3E%3Ccircle cx='331' cy='282' r='0.8' fill='%2393c5fd' fill-opacity='0.67'/%3E%3Ccircle cx='88' cy='46' r='1.2' fill='%2313cfff' fill-opacity='0.43'/%3E%3Ccircle cx='865' cy='75' r='0.8' fill='%2360a5fa' fill-opacity='0.31'/%3E%3Ccircle cx='729' cy='573' r='0.8' fill='%2360a5fa' fill-opacity='0.46'/%3E%3Ccircle cx='67' cy='523' r='0.8' fill='%2338bdf8' fill-opacity='0.60'/%3E%3Ccircle cx='425' cy='129' r='1.2' fill='%2313cfff' fill-opacity='0.47'/%3E%3Ccircle cx='1031' cy='204' r='1.2' fill='%2338bdf8' fill-opacity='0.61'/%3E%3Ccircle cx='1110' cy='340' r='1.2' fill='%2338bdf8' fill-opacity='0.34'/%3E%3Ccircle cx='1049' cy='132' r='1.2' fill='%2360a5fa' fill-opacity='0.60'/%3E%3Ccircle cx='75' cy='393' r='1.7' fill='%2393c5fd' fill-opacity='0.31'/%3E%3Ccircle cx='85' cy='480' r='1.2' fill='%23ffffff' fill-opacity='0.44'/%3E%3Ccircle cx='434' cy='228' r='0.8' fill='%2393c5fd' fill-opacity='0.62'/%3E%3Ccircle cx='1160' cy='106' r='1.7' fill='%23ffffff' fill-opacity='0.41'/%3E%3Ccircle cx='786' cy='182' r='1.2' fill='%2393c5fd' fill-opacity='0.36'/%3E%3Ccircle cx='364' cy='348' r='1.2' fill='%2338bdf8' fill-opacity='0.53'/%3E%3Ccircle cx='60' cy='103' r='1.2' fill='%2393c5fd' fill-opacity='0.65'/%3E%3Ccircle cx='260' cy='258' r='0.8' fill='%2360a5fa' fill-opacity='0.45'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 1200px 650px;
+}
+
+.ai-pattern-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none'%3E%3Cpath d='M20 20L40 40 M60 20L40 40 M20 60L40 40 M60 60L40 40' stroke='%230066cc' stroke-width='0.75' stroke-dasharray='2 3' stroke-opacity='0.22'/%3E%3Cpath d='M0 0L20 20 M80 0L60 20 M0 80L20 60 M80 80L60 60' stroke='%230066cc' stroke-width='0.75' stroke-dasharray='2 3' stroke-opacity='0.16'/%3E%3Cpath d='M0 20H20 M60 20H80 M0 60H20 M60 60H80' stroke='%230284c7' stroke-width='0.5' stroke-opacity='0.14'/%3E%3Cpath d='M20 0V20 M20 60V80 M60 0V20 M60 60V80' stroke='%230284c7' stroke-width='0.5' stroke-opacity='0.14'/%3E%3Ccircle cx='40' cy='40' r='5' stroke='%230066cc' stroke-width='0.75' stroke-opacity='0.18'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%230066cc' fill-opacity='0.38'/%3E%3Cpath d='M40 36V44 M36 40H44' stroke='%230284c7' stroke-width='0.6' stroke-opacity='0.35'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%230284c7' fill-opacity='0.3'/%3E%3Ccircle cx='60' cy='20' r='1.5' fill='%230284c7' fill-opacity='0.3'/%3E%3Ccircle cx='20' cy='60' r='1.5' fill='%230284c7' fill-opacity='0.3'/%3E%3Ccircle cx='60' cy='60' r='1.5' fill='%230284c7' fill-opacity='0.3'/%3E%3Ccircle cx='0' cy='0' r='1.2' fill='%230066cc' fill-opacity='0.22'/%3E%3Ccircle cx='80' cy='0' r='1.2' fill='%230066cc' fill-opacity='0.22'/%3E%3Ccircle cx='0' cy='80' r='1.2' fill='%230066cc' fill-opacity='0.22'/%3E%3Ccircle cx='80' cy='80' r='1.2' fill='%230066cc' fill-opacity='0.22'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+}
+
+/* ==========================================================================
+   9. RESOURCE CENTER INTERACTIVE SPOTLIGHT POINTS
+   ========================================================================== */
+.resource-points-list {
     position: relative;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
 }
 
-.resource-roller-track {
+.resource-point-item {
     position: relative;
-    width: 100%;
-    transition: transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1);
-    will-change: transform;
-}
-
-.resource-roller-track.no-transition {
-    transition: none !important;
-}
-
-.resource-roller-item {
-    transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1);
-    opacity: 0;
-    transform: scale(0.94);
+    transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.3, 1),
+                opacity 0.32s ease,
+                filter 0.32s ease;
     transform-origin: left center;
-    pointer-events: none;
-    padding: 0.85rem 0;
-}
-
-/* Inactive adjacent items (Top & Bottom) */
-.resource-roller-item.is-adjacent {
-    opacity: 0.45;
-    transform: scale(0.95);
-    pointer-events: auto;
     cursor: pointer;
+    will-change: transform, opacity;
 }
 
-.resource-roller-item.is-adjacent:hover {
-    opacity: 0.75;
-    transform: scale(0.97);
+.resource-point-item .res-point-line {
+    width: 3px;
+    background-color: #13cfff;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    transition: all 0.32s cubic-bezier(0.2, 0.9, 0.3, 1);
+    box-shadow: 0 0 6px rgba(19, 207, 255, 0.3);
 }
 
-.resource-roller-item.is-adjacent .res-title {
-    color: rgba(226, 232, 240, 0.72);
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    transition: color 0.3s ease;
-}
-
-.resource-roller-item.is-adjacent:hover .res-title {
-    color: rgba(255, 255, 255, 0.92);
-}
-
-.resource-roller-item.is-adjacent .res-desc {
-    color: rgba(148, 163, 184, 0.65);
-    font-size: 0.825rem;
-    margin-top: 0.25rem;
-    line-height: 1.45;
-    transition: color 0.3s ease;
-}
-
-.resource-roller-item.is-adjacent:hover .res-desc {
-    color: rgba(203, 213, 225, 0.85);
-}
-
-/* Active center item */
-.resource-roller-item.is-active {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-}
-
-.resource-roller-item.is-active .res-title {
-    color: #ffffff !important;
-    background: linear-gradient(135deg, #ffffff 65%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 1.45rem !important;
-    font-weight: 800;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.18));
-}
-
-.resource-roller-item.is-active .res-desc {
-    color: #cbd5e1 !important;
-    font-size: 0.925rem !important;
-    margin-top: 0.35rem;
-    line-height: 1.55;
-    font-weight: 400;
-    max-width: 34rem;
-}
-
-@media (min-width: 640px) {
-    .resource-roller-container {
-        height: 350px;
+@media (hover: hover) and (pointer: fine) {
+    /* When hovering ANY item in the list: others scale down and dim */
+    .resource-points-list:hover .resource-point-item {
+        transform: scale(0.94);
+        opacity: 0.42;
     }
-    .resource-roller-item.is-active .res-title {
-        font-size: 1.65rem !important;
+
+    /* The hovered item enlarges and brightens */
+    .resource-points-list .resource-point-item:hover {
+        transform: scale(1.06);
+        opacity: 1;
+        z-index: 10;
     }
-    .resource-roller-item.is-active .res-desc {
-        font-size: 0.95rem !important;
+
+    .resource-points-list .resource-point-item:hover .res-point-line {
+        background-color: #38bdf8;
+        box-shadow: 0 0 12px #13cfff, 0 0 20px rgba(19, 207, 255, 0.7);
+        transform: scaleY(1.15);
     }
-    .resource-roller-item.is-adjacent .res-title {
-        font-size: 1.15rem;
+
+    .resource-points-list .resource-point-item:hover .res-title {
+        color: #ffffff;
+        text-shadow: 0 0 16px rgba(19, 207, 255, 0.4);
     }
-    .resource-roller-item.is-adjacent .res-desc {
-        font-size: 0.85rem;
-    }
-}
-@media (min-width: 1024px) {
-    .resource-roller-container {
-        height: 360px;
-    }
-    .resource-roller-item.is-active .res-title {
-        font-size: 1.8rem !important;
-    }
-    .resource-roller-item.is-active .res-desc {
-        font-size: 0.975rem !important;
+
+    .resource-points-list .resource-point-item:hover .res-desc {
+        color: #f1f5f9;
     }
 }
 
@@ -666,6 +612,8 @@ a, button, input, select {
             </video>
             <!-- Linear Gradient on Left Side so the text is crisp, high-contrast & visible, leaving the video fully radiant -->
             <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 via-38% to-transparent pointer-events-none"></div>
+            <!-- Subtle AI Neural Network Matrix Overlay -->
+            <div class="absolute inset-0 ai-pattern-dark opacity-10 [mask-image:radial-gradient(ellipse_75%_65%_at_40%_45%,black_35%,transparent_90%)] pointer-events-none"></div>
             <!-- Subtle Top & Bottom Gradient Vignettes -->
             <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-slate-950/70 to-transparent pointer-events-none"></div>
             <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/80 to-transparent pointer-events-none"></div>
@@ -935,14 +883,17 @@ a, button, input, select {
     <section id="about" class="relative py-16 sm:py-24 overflow-hidden bg-[#FBF9F5] scroll-mt-28">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-left"></div>
+        <!-- Subtle AI Neural Network Lattice Pattern -->
+        <div class="absolute inset-0 pointer-events-none select-none ai-pattern-light opacity-10 [mask-image:radial-gradient(ellipse_80%_65%_at_45%_50%,black_30%,transparent_90%)]"></div>
 
-        <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                 
                 <!-- Left: Headline & CTA -->
                 <div class="lg:col-span-6 space-y-6 text-left py-2 sm:py-4">
-                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading">
-                        Program Overview
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading flex items-center gap-1.5">
+                        <i class="fa-solid fa-brain text-[13px]"></i>
+                        <span>Program Overview</span>
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl lg:text-[46px] font-black font-heading text-slate-900 tracking-tight leading-[1.15]">
@@ -1030,18 +981,8 @@ a, button, input, select {
     <section id="eligibility" class="relative scroll-mt-28">
         <!-- Institutional Blue Strip -->
         <div class="relative bg-[#0A2540] text-white py-[100px] overflow-hidden" style="padding-top: 100px; padding-bottom: 100px;">
-            <!-- Background Pattern Overlay -->
-            <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                    <defs>
-                        <pattern id="eligibility-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
-                            <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
-                            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#eligibility-strip-pattern)" />
-                </svg>
-            </div>
+            <!-- AI Neural Synaptic Lattice Overlay -->
+            <div class="absolute inset-0 pointer-events-none opacity-10 overflow-hidden ai-pattern-dark"></div>
             <!-- Subtle Ambient Glow -->
             <div class="absolute -right-24 -top-24 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -1049,8 +990,9 @@ a, button, input, select {
             <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
                 
                 <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
-                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                        Candidate Qualification
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-network-wired text-[13px]"></i>
+                        <span>Candidate Qualification</span>
                     </div>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight">
                         CAIE™ Dual-Pathway <span class="text-blue-300 heading-glow-text">Eligibility Criteria</span>
@@ -1117,13 +1059,16 @@ a, button, input, select {
     <section id="curriculum" class="relative py-[100px] bg-[#FBF9F5] overflow-hidden scroll-mt-28" style="padding-top: 100px; padding-bottom: 100px;">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-dual"></div>
+        <!-- Subtle AI Neural Network Lattice Pattern -->
+        <div class="absolute inset-0 pointer-events-none select-none ai-pattern-light opacity-10 [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,black_30%,transparent_90%)]"></div>
 
         <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
             
             <!-- Section Header -->
             <div class="max-w-4xl mx-auto text-center mb-12 space-y-3">
-                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                    Curriculum Architecture
+                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-microchip text-[13px]"></i>
+                    <span>Curriculum Architecture</span>
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight">
                     CAIE™ - 9 Core <span class="text-blue-800 heading-glow-text">Curriculum Modules</span>
@@ -1714,18 +1659,8 @@ a, button, input, select {
     <section id="resources" class="relative scroll-mt-28">
         <!-- Institutional Blue Strip -->
         <div class="relative bg-[#0A2540] text-white pt-14 sm:pt-20 pb-14 sm:pb-20 overflow-hidden">
-            <!-- Background Pattern Overlay -->
-            <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                    <defs>
-                        <pattern id="resources-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
-                            <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
-                            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#resources-strip-pattern)" />
-                </svg>
-            </div>
+            <!-- AI Neural Synaptic Lattice Overlay -->
+            <div class="absolute inset-0 pointer-events-none opacity-10 overflow-hidden ai-pattern-dark"></div>
             <!-- Subtle Ambient Glow -->
             <div class="absolute -right-24 -top-24 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -1734,8 +1669,9 @@ a, button, input, select {
                 
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
-                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                        Preparation Ecosystem
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-layer-group text-[13px]"></i>
+                        <span>Preparation Ecosystem</span>
                     </div>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-white tracking-tight leading-tight">
                         Comprehensive Resources Designed for <span class="text-blue-300 heading-glow-text">CAIE™ Preparation</span>
@@ -1748,91 +1684,52 @@ a, button, input, select {
                 <!-- 2-Column Architecture: Left Clean Text Roller + Right Kit Image -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center max-w-7xl mx-auto">
                     
-                    <!-- Left: Clean Large Text Roller (Center Active) -->
+                    <!-- Left: Clean Spotlight Points List (Enlarge on hover, others scale down) -->
                     <div class="lg:col-span-7">
-                        <div id="resource-roller-box" class="resource-roller-container select-none">
-                            <div id="resource-roller-track" class="resource-roller-track flex flex-col">
-                                
-                                <!-- Set 1 (Buffer) -->
-                                <div class="resource-roller-item" data-item-index="0">
-                                    <h3 class="res-title font-heading tracking-tight">3 Personalized Study Books</h3>
-                                    <p class="res-desc">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
+                        <ul class="resource-points-list space-y-3.5 sm:space-y-4">
+                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
+                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
+                                <div>
+                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">3 Personalized Study Books</h3>
+                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
                                 </div>
-                                <div class="resource-roller-item" data-item-index="1">
-                                    <h3 class="res-title font-heading tracking-tight">HD Self-Paced Video Lectures</h3>
-                                    <p class="res-desc">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
+                            </li>
+                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
+                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
+                                <div>
+                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">HD Self-Paced Video Lectures</h3>
+                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
                                 </div>
-                                <div class="resource-roller-item" data-item-index="2">
-                                    <h3 class="res-title font-heading tracking-tight">Shareable Digital Credential Badge</h3>
-                                    <p class="res-desc">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
+                            </li>
+                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
+                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
+                                <div>
+                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">Shareable Digital Credential Badge</h3>
+                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
                                 </div>
-                                <div class="resource-roller-item" data-item-index="3">
-                                    <h3 class="res-title font-heading tracking-tight">Regularly Updated AI Curriculum</h3>
-                                    <p class="res-desc">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
+                            </li>
+                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
+                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
+                                <div>
+                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">Regularly Updated AI Curriculum</h3>
+                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
                                 </div>
-                                <div class="resource-roller-item" data-item-index="4">
-                                    <h3 class="res-title font-heading tracking-tight">Flexible Interest-Free Payment</h3>
-                                    <p class="res-desc">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
+                            </li>
+                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
+                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
+                                <div>
+                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">Flexible Interest-Free Payment</h3>
+                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
                                 </div>
-                                <div class="resource-roller-item" data-item-index="5">
-                                    <h3 class="res-title font-heading tracking-tight">Real-World Industry Use Cases</h3>
-                                    <p class="res-desc">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
+                            </li>
+                            <li class="resource-point-item group flex items-start gap-3.5 sm:gap-4 py-1.5 sm:py-2">
+                                <span class="res-point-line h-5 sm:h-6 mt-1" aria-hidden="true"></span>
+                                <div>
+                                    <h3 class="res-title text-base sm:text-lg font-bold font-heading text-white tracking-tight transition-colors duration-300">Real-World Industry Use Cases</h3>
+                                    <p class="res-desc text-xs sm:text-sm text-blue-100/80 leading-relaxed mt-0.5 transition-colors duration-300">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
                                 </div>
-
-                                <!-- Set 2 (Active Main Window) -->
-                                <div class="resource-roller-item is-active" data-item-index="0">
-                                    <h3 class="res-title font-heading tracking-tight">3 Personalized Study Books</h3>
-                                    <p class="res-desc">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
-                                </div>
-                                <div class="resource-roller-item is-adjacent" data-item-index="1">
-                                    <h3 class="res-title font-heading tracking-tight">HD Self-Paced Video Lectures</h3>
-                                    <p class="res-desc">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="2">
-                                    <h3 class="res-title font-heading tracking-tight">Shareable Digital Credential Badge</h3>
-                                    <p class="res-desc">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="3">
-                                    <h3 class="res-title font-heading tracking-tight">Regularly Updated AI Curriculum</h3>
-                                    <p class="res-desc">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="4">
-                                    <h3 class="res-title font-heading tracking-tight">Flexible Interest-Free Payment</h3>
-                                    <p class="res-desc">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="5">
-                                    <h3 class="res-title font-heading tracking-tight">Real-World Industry Use Cases</h3>
-                                    <p class="res-desc">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
-                                </div>
-
-                                <!-- Set 3 (Loop Continuation Buffer) -->
-                                <div class="resource-roller-item" data-item-index="0">
-                                    <h3 class="res-title font-heading tracking-tight">3 Personalized Study Books</h3>
-                                    <p class="res-desc">Curated exclusively for CAIE™ candidates, covering Machine Learning, Deep Learning, Generative AI, LLMs, and RAG architectures.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="1">
-                                    <h3 class="res-title font-heading tracking-tight">HD Self-Paced Video Lectures</h3>
-                                    <p class="res-desc">In-depth, hands-on video modules and practical deep-dives that you can revisit at your own schedule.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="2">
-                                    <h3 class="res-title font-heading tracking-tight">Shareable Digital Credential Badge</h3>
-                                    <p class="res-desc">A verified, lifelong digital badge for LinkedIn, digital resumes, email signatures, and global professional branding.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="3">
-                                    <h3 class="res-title font-heading tracking-tight">Regularly Updated AI Curriculum</h3>
-                                    <p class="res-desc">Continuously refreshed with real-world advancements, vetted by the USAII® Artificial Intelligence Advisory Board (AIAB).</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="4">
-                                    <h3 class="res-title font-heading tracking-tight">Flexible Interest-Free Payment</h3>
-                                    <p class="res-desc">Choose to enroll with full tuition or split the program investment into three convenient interest-free installments.</p>
-                                </div>
-                                <div class="resource-roller-item" data-item-index="5">
-                                    <h3 class="res-title font-heading tracking-tight">Real-World Industry Use Cases</h3>
-                                    <p class="res-desc">Hands-on applied projects in predictive modeling, computer vision, recommendation systems, and production RAG pipelines.</p>
-                                </div>
-
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Right: Kit Mockup Showcase -->
@@ -1858,12 +1755,15 @@ a, button, input, select {
     <section id="exam-spec" class="relative py-[100px] bg-[#FBF9F5] overflow-hidden" style="padding-top: 100px; padding-bottom: 100px;">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-right"></div>
+        <!-- Subtle AI Neural Network Lattice Pattern -->
+        <div class="absolute inset-0 pointer-events-none select-none ai-pattern-light opacity-10 [mask-image:radial-gradient(ellipse_80%_65%_at_50%_50%,black_30%,transparent_90%)]"></div>
 
         <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
             
             <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                    Assessment Standards
+                <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center flex items-center justify-center gap-1.5">
+                    <i class="fa-solid fa-sliders text-[13px]"></i>
+                    <span>Assessment Standards</span>
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-black font-heading text-slate-900 tracking-tight">
                     CAIE™ Exam Blueprint & <span class="text-blue-800 heading-glow-text">Testing Format</span>
@@ -1927,18 +1827,8 @@ a, button, input, select {
     <section id="credential" class="relative scroll-mt-28">
         <!-- Institutional Blue Strip -->
         <div class="relative bg-[#0A2540] text-white py-[100px] overflow-hidden" style="padding-top: 100px; padding-bottom: 100px;">
-            <!-- Background Pattern Overlay -->
-            <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                    <defs>
-                        <pattern id="credential-strip-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
-                            <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
-                            <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#credential-strip-pattern)" />
-                </svg>
-            </div>
+            <!-- AI Neural Synaptic Lattice Overlay -->
+            <div class="absolute inset-0 pointer-events-none opacity-10 overflow-hidden ai-pattern-dark"></div>
             <!-- Subtle Ambient Glow -->
             <div class="absolute -right-24 -top-24 w-80 h-80 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -left-24 -bottom-24 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -1961,8 +1851,9 @@ a, button, input, select {
 
                     <!-- Right: Content & CTAs (On right side) -->
                     <div class="lg:col-span-7 space-y-5 text-left">
-                        <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading">
-                            YOUR CREDENTIAL
+                        <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading flex items-center gap-1.5">
+                            <i class="fa-solid fa-award text-[13px]"></i>
+                            <span>Your Credential</span>
                         </div>
 
                         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black font-heading text-white tracking-tight leading-snug">
@@ -2002,14 +1893,17 @@ a, button, input, select {
     <section id="faqs" class="relative py-16 sm:py-24 bg-[#FBF9F5] overflow-hidden text-slate-800 scroll-mt-28">
         <!-- Seamless Uncut Ambient Blue Glow (Zero Cut Edges) -->
         <div class="absolute inset-0 pointer-events-none select-none ambient-glow-left"></div>
+        <!-- Subtle AI Neural Network Lattice Pattern -->
+        <div class="absolute inset-0 pointer-events-none select-none ai-pattern-light opacity-10 [mask-image:radial-gradient(ellipse_80%_65%_at_45%_50%,black_30%,transparent_90%)]"></div>
 
         <div class="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start max-w-7xl mx-auto">
                 
                 <!-- Left Column -->
                 <div class="lg:col-span-5 space-y-5 text-left">
-                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading">
-                        Got Questions?
+                    <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-question text-[13px]"></i>
+                        <span>Got Questions?</span>
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 leading-[1.15] tracking-tight">
@@ -2137,23 +2031,14 @@ a, button, input, select {
 
     <!-- FINAL HIGH-IMPACT INSTITUTIONAL CTA SECTION -->
     <section class="relative overflow-hidden pt-[100px] pb-12 sm:pb-16 bg-[#0A2540] text-white text-center" style="padding-top: 100px;">
-        <!-- Background Tech Pattern Overlay -->
-        <div class="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-                <defs>
-                    <pattern id="final-cta-pattern" width="28" height="28" patternUnits="userSpaceOnUse">
-                        <circle cx="2" cy="2" r="1.2" fill="#93C5FD" />
-                        <path d="M 28 0 L 0 0 0 28" fill="none" stroke="#BFDBFE" stroke-width="0.75" stroke-dasharray="2 3" opacity="0.6" />
-                    </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#final-cta-pattern)" />
-            </svg>
-        </div>
+        <!-- AI Neural Synaptic Lattice Overlay -->
+        <div class="absolute inset-0 pointer-events-none opacity-10 overflow-hidden ai-pattern-dark"></div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-8 space-y-6 sm:space-y-7">
             
-            <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center">
-                Applications Open • Global Cohort
+            <div class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#13cfff] font-heading text-center flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-bolt text-[13px]"></i>
+                <span>Applications Open • Global Cohort</span>
             </div>
             
             <div class="space-y-3.5">
@@ -2343,9 +2228,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 7b. Initialize Mobile Curriculum Controls
     updateMobileCurriculumControls(1);
-
-    // 8. Initialize Resource Center Auto-Scroll Loop
-    initResourceScrollLoop();
 
 
     // 9. Wire all application buttons to modal
@@ -2929,159 +2811,7 @@ function initSleekScrollAnimations() {
     targets.forEach(el => observer.observe(el));
 }
 
-// 8. Resource Center Clean Text-Only Smooth Infinite Roller (Center Active)
-function initResourceScrollLoop() {
-    const container = document.getElementById('resource-roller-box');
-    const track = document.getElementById('resource-roller-track');
-    const section = document.getElementById('resources');
-    if (!container || !track) return;
 
-    const items = track.querySelectorAll('.resource-roller-item');
-    if (!items.length) return;
-
-    const distinctCount = 6;
-    // Set 1: [0..5], Set 2: [6..11], Set 3: [12..17]
-    let currentIndex = distinctCount; // start at Set 2, Item 0 (index 6)
-    let autoInterval = null;
-    let isUserHovering = false;
-    let isSectionVisible = true;
-    let isTransitioning = false;
-
-    function updateVisualClasses(idx) {
-        items.forEach((item, i) => {
-            if (i === idx) {
-                item.classList.add('is-active');
-                item.classList.remove('is-adjacent');
-            } else if (i === idx - 1 || i === idx + 1) {
-                item.classList.add('is-adjacent');
-                item.classList.remove('is-active');
-            } else {
-                item.classList.remove('is-active', 'is-adjacent');
-            }
-        });
-    }
-
-    function positionCenter(idx, animate = true) {
-        if (idx < 0 || idx >= items.length) return;
-        const targetItem = items[idx];
-        if (!targetItem) return;
-
-        updateVisualClasses(idx);
-
-        if (!animate) {
-            track.classList.add('no-transition');
-        } else {
-            track.classList.remove('no-transition');
-            isTransitioning = true;
-        }
-
-        // Calculate offset to place center of targetItem exactly at the center of container
-        const containerH = container.clientHeight || 420;
-        const itemCenter = targetItem.offsetTop + (targetItem.offsetHeight / 2);
-        const targetY = (containerH / 2) - itemCenter;
-
-        track.style.transform = `translateY(${Math.round(targetY)}px)`;
-
-        if (!animate) {
-            // Force browser layout reflow so no-transition applies immediately
-            track.offsetHeight;
-            track.classList.remove('no-transition');
-            isTransitioning = false;
-        }
-    }
-
-    function moveTo(index) {
-        currentIndex = index;
-        positionCenter(currentIndex, true);
-    }
-
-    // Seamless Infinite Loop Reset on Transition End
-    track.addEventListener('transitionend', (e) => {
-        if (e.target !== track || e.propertyName !== 'transform') return;
-        isTransitioning = false;
-
-        // If we transitioned to Set 3 (index >= 12), seamlessly jump back to Set 2
-        if (currentIndex >= distinctCount * 2) {
-            currentIndex = currentIndex - distinctCount;
-            positionCenter(currentIndex, false);
-        } else if (currentIndex < distinctCount) {
-            // If moved before Set 2, jump to Set 2 equivalent
-            currentIndex = currentIndex + distinctCount;
-            positionCenter(currentIndex, false);
-        }
-    });
-
-    function nextItem() {
-        if (isTransitioning) return;
-        moveTo(currentIndex + 1);
-    }
-
-    function startAutoLoop() {
-        stopAutoLoop();
-        if (isUserHovering || !isSectionVisible) return;
-        autoInterval = setInterval(nextItem, 3400);
-    }
-
-    function stopAutoLoop() {
-        if (autoInterval) {
-            clearInterval(autoInterval);
-            autoInterval = null;
-        }
-    }
-
-    // Direct click on adjacent items centers them immediately
-    items.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            if (index !== currentIndex) {
-                moveTo(index);
-            }
-        });
-    });
-
-    // Pause on hover
-    container.addEventListener('mouseenter', () => {
-        isUserHovering = true;
-        stopAutoLoop();
-    });
-
-    container.addEventListener('mouseleave', () => {
-        isUserHovering = false;
-        startAutoLoop();
-    });
-
-    // Initial setup (render without animation)
-    positionCenter(currentIndex, false);
-    // Secondary alignment pass once fonts/DOM layout are fully settled
-    setTimeout(() => {
-        positionCenter(currentIndex, false);
-    }, 150);
-
-    // Viewport Intersection Observer
-    if (section && 'IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                isSectionVisible = entry.isIntersecting;
-                if (isSectionVisible) {
-                    startAutoLoop();
-                } else {
-                    stopAutoLoop();
-                }
-            });
-        }, { threshold: 0.15 });
-        observer.observe(section);
-    } else {
-        startAutoLoop();
-    }
-
-    // Window resize adjustment
-    let resizeTimer = null;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            positionCenter(currentIndex, false);
-        }, 100);
-    });
-}
 
     </script>
 </body>
