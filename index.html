@@ -1791,17 +1791,22 @@ a, button, input, select {
                         </ul>
                     </div>
 
-                    <!-- Right: Kit Mockup Showcase -->
-                    <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
-                        <!-- Radiant Ambient Glow behind Kit -->
-                        <div class="absolute inset-4 sm:inset-6 bg-gradient-to-tr from-blue-600/35 via-cyan-400/25 to-indigo-500/30 rounded-3xl blur-3xl pointer-events-none"></div>
+                    <!-- Right: YouTube Video Showcase -->
+                    <div class="lg:col-span-5 flex flex-col items-center justify-center relative w-full">
+                        <!-- Radiant Ambient Glow behind Video -->
+                        <div class="absolute inset-2 sm:inset-4 bg-gradient-to-tr from-blue-600/35 via-cyan-400/25 to-indigo-500/30 rounded-3xl blur-3xl pointer-events-none"></div>
                         
-                        <img src="Images/caic-pdm-kits.png" 
-                             onerror="this.onerror=null; this.src='https://ik.imagekit.io/edtechdigit/usaii/content/images/caic-pdm-kits.png';"
-                             alt="Comprehensive Resources & Study Kits for CAIE™ Preparation" 
-                             width="540" height="420" decoding="async"
-                             class="relative z-10 w-full max-w-md lg:max-w-none h-auto object-contain rounded-2xl drop-shadow-[0_25px_45px_rgba(0,0,0,0.65)] select-none" 
-                             loading="lazy" />
+                        <!-- 16:9 Aspect Ratio Video Container -->
+                        <div class="relative z-10 w-full aspect-video rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7),0_0_30px_rgba(19,207,255,0.2)] border border-white/20 bg-slate-900" style="aspect-ratio: 16/9;">
+                            <iframe 
+                                class="w-full h-full"
+                                src="https://www.youtube.com/embed/bAhUzPNmYZo?autoplay=1&mute=1&loop=1&playlist=bAhUzPNmYZo&playsinline=1&rel=0" 
+                                title="USAII CAIE™ Video"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
                     </div>
 
                 </div>
